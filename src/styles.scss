@@ -1,1 +1,57 @@
 /* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+    font-family: dbSans;
+    src: url(assets/fonts/DB_Sans_Regular.otf) format("opentype");
+  }
+  @font-face {
+    font-family: dbItalic;
+    src: url(assets/fonts/DB_Sans_Regular_Italic.otf) format("opentype");
+  }
+
+@font-face {
+    font-family: dbBold;
+    src: url(assets/fonts/DB_Sans_Bold.otf) format("opentype");
+  }
+
+  @font-face {
+    font-family: dbBoldItalic;
+    src: url(assets/fonts/DB_Sans_Bold_Italic.otf) format("opentype");
+  }
+
+  @font-face {
+    font-family: dbBlack;
+    src: url(assets/fonts/DB_Sans_Black.otf) format("opentype");
+  }
+
+  @font-face {
+    font-family: dbBlackItalic;
+    src: url(assets/fonts/DB_Sans_Black_Italic.otf) format("opentype");
+  }
+
+  .dbSans{
+      font-family: dbSans;
+  }
+
+  .dbItalic{
+    font-family: dbItalic;
+}
+
+.dbBold{
+    font-family: dbBold;
+}
+
+.dbBoldItalic{
+    font-family: dbBoldItalic;
+}
+
+.dbBlack{
+    font-family: dbBlack;
+}
+
+.dbBlackItalic{
+    font-family: dbBlackItalic;
+}
