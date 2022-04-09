@@ -1,0 +1,54 @@
+.mat-tab-label {
+    color: white;
+    font-family: dbSans;
+    letter-spacing: .5px;
+}
+
+.default{
+    background-color: #131bac;
+}
+
+.s-bahn{
+    background-color: #00AA11;
+}
+
+.regio{
+    background-color: #FF2F2F;
+    font-style: italic;
+}
+
+.ice{
+    background-color: #4d4d4d;
+    font-style: italic;
+}
+
+.ic{
+    background-color: #929191;
+    font-style: italic;
+}
+.flix{
+    background-color: #40df4b;
+}
+
+.red-delay{
+    color: #FF2F2F;
+}
+
+    @keyframes textmove {
+        0% { transform: translate3d(110%, 0, 0); }
+        100% { transform: translate3d(-220%, 0, 0); }
+      }
+
+      @keyframes textmove-long {
+        0% { transform: translate3d(100%, 0, 0); }
+        100% { transform: translate3d(-600%, 0, 0); }
+      }
+
+      @keyframes textmove-short {
+        0% { transform: translate3d(110%, 0, 0); }
+        100% { transform: translate3d(-95%, 0, 0); }
+      }
+
+      .hmove { animation: textmove linear 17s infinite; }
+      .hmove-short { animation: textmove-short linear 17s infinite; }
+      .hmove-long { animation: textmove-long linear 30s infinite; }
