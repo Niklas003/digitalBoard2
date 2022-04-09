@@ -10,6 +10,7 @@ import { StationService } from '../station.service';
 export class HauptbahnhofComponent implements OnInit {
 
   stationData: any = [];
+
   constructor(private api: StationService) { }
 
   ngOnInit(): void {

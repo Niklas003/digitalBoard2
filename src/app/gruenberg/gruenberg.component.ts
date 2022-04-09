@@ -10,6 +10,8 @@ export class GruenbergComponent implements OnInit {
 
   stationGruenberg:any = [];
   sub:any;
+  timeDiff:any;
+  plannedTime:any;
 
   constructor(private api: StationService) { }
 
@@ -18,16 +20,12 @@ export class GruenbergComponent implements OnInit {
     setInterval(()=> { this.getStationGruenberg() }, 60 * 1000);
   }
 
-  ngOnDestroy(): void{
-    this.sub.unsubscribe();
-  }
-
   getStationGruenberg() {
    this.sub = this.api.getGruenberg()
       .subscribe(data => {
         this.stationGruenberg = [];
         for (const d of (data as any)) {
-        if(d.line.productName !== 'Bus' && d.line.productName !== 'U'){
+        if(d.line.productName === 'S'){
           this.stationGruenberg.push({
   
             name: d.stop.name,
@@ -44,6 +42,13 @@ export class GruenbergComponent implements OnInit {
         }
       }
       });
+  }
+
+  getDiff(planned:any): number{
+    this.sub = new Date();
+    this.plannedTime=  new Date(planned);
+    this.timeDiff = this.plannedTime - this.sub;
+    return this.timeDiff;
   }
 
 }

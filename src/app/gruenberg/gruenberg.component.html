@@ -24,8 +24,11 @@
                 <span *ngIf="i.delay > 0" class="relative bottom-4 left-1 text-[#00AA11] dbBold" [class.red-delay]="i.delay >= 5">+{{i.delay}}</span>
             </div>
 
-            <div>
-                <div class="s-bahn p-2 rounded-full w-2 mx-auto"></div>
+            <div class="mx-auto">
+                <span class="flex h-3 w-3">
+                    <span *ngIf="getDiff(i.planned)>480000" class="animate-ping absolute inline-flex p-2 rounded-full s-bahn opacity-75"></span>
+                    <span class="relative inline-flex rounded-full p-2 bg-sky-500" [ngClass]="{'s-bahn': getDiff(i.planned)>450000, 'gelb': getDiff(i.planned)<=450000 && getDiff(i.planned) >= 250000, 'regio': getDiff(i.planned)<250000}"></span>
+                  </span>
             </div>
 
             <div *ngIf="i.platform" class="text-center relative right-2">
@@ -34,7 +37,7 @@
             </div>
 
             <div class="col-span-3 box-border whitespace-nowrap overflow-hidden relative right-4">
-                <div [ngClass]="{'hmove-short':i.cancelled, 'hmove-long': !i.cancelled}">
+                <div [ngClass]="{'hmove-short':i.cancelled, 'hmove': !i.cancelled}">
                     <span *ngIf="i.info" class="dbSans text-base text-[#FF2F2F]">+++ {{i.info.text}} +++</span>
                 </div>
                 <div *ngIf="!i.info">
