@@ -26,7 +26,7 @@
 
             <div class="mx-auto">
                 <span class="flex h-3 w-3">
-                    <span [ngClass]="{'s-bahn': getDiff(i.planned)>450000, 'gelb': getDiff(i.planned)<=300000 && getDiff(i.planned) >= 250000}" *ngIf="getDiff(i.planned)<=440000 && getDiff(i.planned)>450000 || getDiff(i.planned)>=250000 && getDiff(i.planned)<280000" class="animate-ping absolute inline-flex p-2 rounded-full opacity-75"></span>
+                    <span [ngClass]="{'s-bahn': getDiff(i.planned)>450000, 'gelb': getDiff(i.planned)<=300000 && getDiff(i.planned) >= 250000}" *ngIf="getDiff(i.planned)<=460000 && getDiff(i.planned)>450000 || getDiff(i.planned)>=250000 && getDiff(i.planned)<280000" class="animate-ping absolute inline-flex p-2 rounded-full opacity-75"></span>
                     <span class="relative inline-flex rounded-full p-2" [ngClass]="{'s-bahn': getDiff(i.planned)>450000, 'gelb': getDiff(i.planned)<=450000 && getDiff(i.planned) >= 250000, 'regio': getDiff(i.planned)<250000, 'depart-now': getDiff(i.planned)<= 0}"></span>
                   </span>
             </div>
@@ -52,5 +52,5 @@
 
 
     <footer class="relative m-auto mt-6 w-2/12 pb-4">
-        <div *ngIf="stationGruenberg.length > 0" (click)="getStationGruenberg()" class="rounded bg-[#ff2f2f] text-center">Neu laden</div>
+        <button *ngIf="stationGruenberg.length > 0" (click)="getStationGruenberg()" class="rounded bg-[#ff2f2f] text-center px-8">Neu laden</button>
     </footer>
