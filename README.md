@@ -25,3 +25,7 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+#Funktionen
+
+Das Projekt zeiggt eine Abfahahrtstafel von Berlin Hauptbahnhof, sowie Berlin  Grünbergalee (S-Bahn). Die App ist auf eine Displaygröße von 1024x600 px ausgelegt, also überhauptnicht responsive, wenn es um kleinere mobile Devices geht. LOL
