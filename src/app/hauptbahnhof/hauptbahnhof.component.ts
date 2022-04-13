@@ -23,7 +23,7 @@ export class HauptbahnhofComponent implements OnInit {
     .subscribe(data => {
       this.stationData = [];
       for (const d of (data as any)) {
-      if(d.line.productName !== 'Bus' && d.line.productName !== 'U' && d.line.productName !== 'S'){
+      if(d.line.productName !== 'Bus' && d.line.productName !== 'U' && d.line.productName !== 'S' && d.line.productName !== 'STR'){
         this.stationData.push({
 
           name: d.stop.name,
