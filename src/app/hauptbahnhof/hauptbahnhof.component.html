@@ -45,5 +45,5 @@
 
 
     <footer class="relative m-auto mt-6 w-2/12 pb-4">
-        <div *ngIf="stationData.length > 0" (click)="getStationData()" class="rounded bg-[#ff2f2f] text-center">Neu laden</div>
+        <button *ngIf="stationData.length > 0" (click)="getStationData()" class="rounded bg-[#ff2f2f] text-center px-8">Neu laden</button>
     </footer>
