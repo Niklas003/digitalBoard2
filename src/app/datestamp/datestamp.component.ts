@@ -14,7 +14,7 @@ export class DatestampComponent implements OnInit {
   public date: Date;
 
   ngOnInit(): void {
-    setInterval(()=> { this.getTime() }, 10 * 1000);
+    setInterval(()=> { this.getTime() }, 5 * 1000);
   }
 
   getTime(){
