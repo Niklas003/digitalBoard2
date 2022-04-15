@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { StationService } from '../station.service';
+import { AppComponent } from '../app.component';
 
 @Component({
   selector: 'app-gruenberg',
@@ -12,9 +13,10 @@ export class GruenbergComponent implements OnInit {
   sub:any;
   timeDiff:any;
   plannedTime:any;
-  result: any;
+  result:any;
+  errorMessage: any;
 
-  constructor(private api: StationService) { }
+  constructor(private api: StationService, private app: AppComponent) { }
 
   ngOnInit(): void {
     this.getStationGruenberg();
@@ -23,7 +25,7 @@ export class GruenbergComponent implements OnInit {
 
   getStationGruenberg() {
    this.sub = this.api.getGruenberg()
-      .subscribe(data => {
+      .subscribe((data) => {
         this.stationGruenberg = [];
         for (const d of (data as any)) {
         if(d.line.productName === 'S'){
@@ -38,7 +40,7 @@ export class GruenbergComponent implements OnInit {
             product: d.line.productName,
             info: d.remarks[0],
             cancelled: d.cancelled,
-            actual: this.getDelayTime(d.plannedWhen, d.delay),
+            actual: this.app.getDelayTime(d.plannedWhen, d.delay),
   
           });
         }
@@ -51,11 +53,6 @@ export class GruenbergComponent implements OnInit {
     this.plannedTime =  new Date(depart);
     this.timeDiff = this.plannedTime - this.sub;
     return this.timeDiff;
-  }
-
-  getDelayTime(planned: any, delay:number):Date{ //used to get actual departure time, with delay
-   this.result =  new Date(planned).setSeconds(new Date(planned).getSeconds() + delay);
-   return this.result
   }
 
 }

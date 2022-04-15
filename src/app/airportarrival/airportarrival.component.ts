@@ -9,20 +9,27 @@ import { AirportService } from '../airportService/airport.service';
 export class AirportarrivalComponent implements OnInit {
 
   airportData: any = [];
+  name:any;
+  
   constructor(private apiAirport: AirportService) { }
 
   ngOnInit(): void {
+  this.getAirport();
+  console.log("AIRPORT DATA " ,this.airportData);
   }
 
-  getAirport(){
+  getAirport() {
     this.apiAirport.getEDDB()
-    .subscribe(data => {
-      for (const d of (data as any)) {
+      .subscribe((data) => {
+        this.airportData = [];
+        //for (const d of (data as any)) {
           this.airportData.push({
-            firstSeen: d.firstSeen
+             data
           });
-        }
-    });
-    console.log(this.airportData);
+        
+      //}
+      });
   }
+
+
 }

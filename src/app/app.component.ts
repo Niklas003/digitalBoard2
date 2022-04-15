@@ -8,4 +8,10 @@ import { Component, ViewEncapsulation } from '@angular/core';
 })
 export class AppComponent {
   title = 'digitalBoard';
+  result:any;
+  
+  getDelayTime(planned: any, delay:number):Date{ //used to get actual departure time, with delay
+    this.result =  new Date(planned).setSeconds(new Date(planned).getSeconds() + delay);
+    return this.result
+   }
 }

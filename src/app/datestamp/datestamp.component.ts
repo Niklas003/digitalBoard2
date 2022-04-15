@@ -12,12 +12,14 @@ export class DatestampComponent implements OnInit {
     this.date = new Date();
   }
   public date: Date;
+  day:any;
 
   ngOnInit(): void {
-    setInterval(()=> { this.getTime() }, 5 * 1000);
+    setInterval(()=> { this.getTime() }, 1000);
   }
 
   getTime(){
     this.date = new Date();
+    this.day = this.date.toLocaleDateString('de-DE', {weekday: 'short'});
   }
 }

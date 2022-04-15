@@ -11,6 +11,7 @@ import { GruenbergComponent } from './gruenberg/gruenberg.component';
 import { DatestampComponent } from './datestamp/datestamp.component';
 import { AirportarrivalComponent } from './airportarrival/airportarrival.component';
 import { AirportdepartureComponent } from './airportdeparture/airportdeparture.component';
+import { DetectStatusComponent } from './detect-status/detect-status.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { AirportdepartureComponent } from './airportdeparture/airportdeparture.c
     GruenbergComponent,
     DatestampComponent,
     AirportarrivalComponent,
-    AirportdepartureComponent
+    AirportdepartureComponent,
+    DetectStatusComponent
   ],
   imports: [
     BrowserModule,

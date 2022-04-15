@@ -26,10 +26,12 @@
 
             <div class="mx-auto">
                 <span class="flex h-3 w-3">
-                    <span [ngClass]="{'s-bahn': getDiff(i.actual)>450000, 'gelb': getDiff(i.actual)<=300000 && getDiff(i.actual) >= 250000}" 
-                        *ngIf="getDiff(i.actual)<=460000 && getDiff(i.actual)>450000 || getDiff(i.actual)>=250000 && getDiff(i.actual)<280000" class="animate-ping absolute inline-flex p-2 rounded-full opacity-75"></span>
+                    <span [ngClass]="{'s-bahn': getDiff(i.actual)>450000 && !i.cancelled, 'gelb': getDiff(i.actual)<=300000 && getDiff(i.actual) >= 250000 && !i.cancelled}" 
+                        *ngIf="getDiff(i.actual)<=460000 && getDiff(i.actual)>450000 || getDiff(i.actual)>=250000 && getDiff(i.actual)<280000" 
+                        class="animate-ping absolute inline-flex p-2 rounded-full opacity-75"></span>
 
-                    <span class="relative inline-flex rounded-full p-2" [ngClass]="{'s-bahn': getDiff(i.actual)>450000, 'gelb': getDiff(i.actual)<=450000 && getDiff(i.actual) >= 250000, 'regio': getDiff(i.actual)<250000 || i.cancelled, 'depart-now': getDiff(i.actual)<= 0}"></span>
+                    <span class="relative inline-flex rounded-full p-2" 
+                    [ngClass]="{'s-bahn': getDiff(i.actual)>450000 && !i.cancelled, 'gelb': getDiff(i.actual)<=450000 && getDiff(i.actual) >= 250000 && !i.cancelled, 'regio': getDiff(i.actual)<250000 || i.cancelled, 'depart-now': getDiff(i.actual)<= 0 && !i.cancelled}"></span>
                   </span>
             </div>
 
