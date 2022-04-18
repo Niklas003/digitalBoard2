@@ -9,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DetectStatusComponent implements OnInit {
 
-  onlineStatus:any;
+  onlineStatus:any = true;
   constructor() { }
 
 

@@ -1,5 +1,9 @@
 # DigitalBoard
 
+The intention of this project is to create a digital departure Board. The Board should show the departures of Berlin Hauptbahnhof, Berlin Grünbergallee *(S-Bahn Station)* and BER Airport. Further:  for Grunbergallee I've implemented a traffic light system to show whether a certain train can still be reached if you leave your apartment now.
+
+## Angular
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.0.
 
 ## Development server
@@ -26,6 +30,3 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
 
-#Funktionen
-
-Das Projekt zeiggt eine Abfahahrtstafel von Berlin Hauptbahnhof, sowie Berlin  Grünbergalee (S-Bahn). Die App ist auf eine Displaygröße von 1024x600 px ausgelegt, also überhauptnicht responsive, wenn es um kleinere mobile Devices geht. LOL
