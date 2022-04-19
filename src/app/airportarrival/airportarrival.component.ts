@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AirportService } from '../airportService/airport.service';
+import { AirportService } from '../Services/airportService/airport.service';
 
 @Component({
   selector: 'app-airportarrival',
