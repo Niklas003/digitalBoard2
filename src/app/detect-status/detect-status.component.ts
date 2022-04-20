@@ -17,8 +17,8 @@ export class DetectStatusComponent implements OnInit {
     setInterval(()=> { this.checkOnline() }, 1000);
   }
 
-  checkOnline():void{
-    this.onlineStatus = navigator.onLine;
+  checkOnline():boolean{
+    return navigator.onLine;
   };
 
 }
