@@ -30,7 +30,7 @@ import { AirportSelectComponent } from './airport-select/airport-select.componen
     BrowserAnimationsModule,
     MatTabsModule,
     MatProgressSpinnerModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

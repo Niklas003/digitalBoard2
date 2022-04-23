@@ -32,6 +32,7 @@ export class AirportarrivalComponent implements OnInit {
            planned: d.arr_estimated_time,
            actual:  d.arr_scheduled_time,
            gate: d.gate,
+           imgSrc: 'https://ber.berlin-airport.de/content/dam/bsb/no-language/airlinelogos/'+d.airline_code.toLowerCase()+'.jpg'
         });
       
     }
