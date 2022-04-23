@@ -12,6 +12,7 @@ import { DatestampComponent } from './datestamp/datestamp.component';
 import { AirportarrivalComponent } from './airportarrival/airportarrival.component';
 import { AirportdepartureComponent } from './airportdeparture/airportdeparture.component';
 import { DetectStatusComponent } from './detect-status/detect-status.component';
+import { AirportSelectComponent } from './airport-select/airport-select.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { DetectStatusComponent } from './detect-status/detect-status.component';
     DatestampComponent,
     AirportarrivalComponent,
     AirportdepartureComponent,
-    DetectStatusComponent
+    DetectStatusComponent,
+    AirportSelectComponent
   ],
   imports: [
     BrowserModule,
