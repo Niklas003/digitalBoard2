@@ -15,14 +15,17 @@
                 </div>
             </div>
 
-            <div class="col-span-2 relative left-4">
+            <div class="col-span-2">
                 <span [ngClass]="{'line-through decoration-[#ff2f2f]': i.cancelled}" class="text-black text-3xl dbBold">{{i.planned | date: 'HH:mm'}}</span>
                 <span *ngIf="i.planned !== i.actual > 0" class="relative bottom-4 left-1 text-[#00AA11] dbBold" [class.red-delay]="i.actual >= i.planned">{{i.actual | date: 'HH:mm'}}</span>
             </div>
-            <div *ngIf="i.gate" class="text-center relative right-2">
-                <span class="text-black text-3xl dbBold relative top-2">{{i.gate}}</span><br>
-                <span class=" text-[#656565] dbBold">Gate</span>
+            <div class="text-center relative right-2">
+                <span class="text-black dbBold">{{i.aircraft}}</span><br>
+                <span class=" text-[#656565] dbSans">Aircraft</span>
+            </div>
+            <div *ngIf="i.status" class="text-center relative right-2">
+                <span class="text-black dbSans">{{i.status}}</span>
             </div>
                     <img src='{{i.imgSrc}}' alt="">
-        </div>
+
     </div>

@@ -13,14 +13,16 @@ export class AirportarrivalComponent implements OnInit {
   Daten:any;
   data: any;
   
-  constructor(private apiAirport: AirportService, private app: AppComponent) { }
+  constructor(private apiAirport: AirportService) { }
 
   ngOnInit(): void {
     this.getAirportArr();
+    setInterval(()=> { this.getAirportArr() }, 180 * 1000);
   }
 
   getAirportArr(){
     this.apiAirport.getEDDBArr().subscribe((data) => {
+      this.airportDataArr = [];
       this.Daten = data.data.items;
       for (const d of (this.Daten as any)) {
         this.airportDataArr.push({
@@ -28,10 +30,10 @@ export class AirportarrivalComponent implements OnInit {
            airline: d.airline_name,
            from: d.dep_airport_name,
            number: d.flight_number.replace(/\D/g, ""),
-           status: d.flight_status_id,
-           planned: d.arr_estimated_time,
-           actual:  d.arr_scheduled_time,
-           gate: d.gate,
+           status: d.flight_status_label,
+           actual: d.arr_estimated_time,
+           planned:  d.arr_scheduled_time,
+           aircraft: d.aircraft_type,
            imgSrc: 'https://ber.berlin-airport.de/content/dam/bsb/no-language/airlinelogos/'+d.airline_code.toLowerCase()+'.jpg'
         });
       
