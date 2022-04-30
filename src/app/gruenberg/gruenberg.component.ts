@@ -20,7 +20,7 @@ export class GruenbergComponent implements OnInit {
 
   ngOnInit(): void {
     this.getStationGruenberg();
-    setInterval(()=> { this.getStationGruenberg() }, 34 * 1000);
+    setInterval(()=> { this.getStationGruenberg() }, 15 * 1000);
   }
 
   getStationGruenberg() {
@@ -54,5 +54,9 @@ export class GruenbergComponent implements OnInit {
     this.timeDiff = this.plannedTime - this.sub;
     return this.timeDiff;
   }
+
+  identifyIfEqual(item:any) {     //IMPORTANT Refresh data only if there is any change
+    return item.id;
+}
 
 }

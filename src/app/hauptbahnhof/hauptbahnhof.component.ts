@@ -15,7 +15,7 @@ export class HauptbahnhofComponent implements OnInit {
 
   ngOnInit(): void {
     this.getStationData();
-    setInterval(()=> { this.getStationData() }, 60 * 1000);
+    setInterval(()=> { this.getStationData() }, 30 * 1000);
   }
 
  getStationData() {
@@ -40,5 +40,9 @@ export class HauptbahnhofComponent implements OnInit {
       }
     }
     });
+}
+
+identifyIfEqual(item:any) {   //IMPORTANT Refresh data only if there is any change
+  return item.id;
 }
 }

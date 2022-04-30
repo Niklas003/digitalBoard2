@@ -5,7 +5,7 @@
     <span class="text-3xl dbBold mr-10 text-center">Abfahrt</span> <span class="dbItalic text-2xl mr-5">Grünbergallee</span> <app-datestamp class="absolute right-0"></app-datestamp>
 </div>
 
-    <div *ngFor="let i of stationGruenberg" class="mt-4 bg-[#C8C8C8] min-w-full rounded-md rounded-l-lg h-20 shadow-lg">
+    <div *ngFor="let i of stationGruenberg; trackBy: identifyIfEqual" class="mt-4 bg-[#C8C8C8] min-w-full rounded-md rounded-l-lg h-20 shadow-lg">
         <div class="grid grid-cols-10 items-center grid-flow-col lg:grid-flow-row">
             <div class="s-bahn w-20 h-20 rounded-l-md text-center z-10">
                 <span class="dbBold text-3xl relative top-3">{{i.product}}</span>
@@ -41,7 +41,7 @@
             </div>
 
             <div class="col-span-3 box-border whitespace-nowrap overflow-hidden relative right-4">
-                <div [ngClass]="{'hmove-short':i.cancelled, 'hmove': !i.cancelled}">
+                <div [ngClass]="{'hmove-short':i.cancelled, 'hmove-long': !i.cancelled}">
                     <span *ngIf="i.info" class="dbSans text-base text-[#FF2F2F]">+++ {{i.info.text}} +++</span>
                 </div>
                 <div *ngIf="!i.info">

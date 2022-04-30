@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { AppComponent } from '../app.component';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { AirportService } from '../Services/airportService/airport.service';
 
 @Component({
@@ -7,11 +6,12 @@ import { AirportService } from '../Services/airportService/airport.service';
   templateUrl: './airportarrival.component.html',
   styleUrls: ['./airportarrival.component.scss']
 })
-export class AirportarrivalComponent implements OnInit {
+export class AirportarrivalComponent implements OnInit, OnDestroy {
 
   airportDataArr: any = [];
   Daten:any;
   data: any;
+  airport: any;
   
   constructor(private apiAirport: AirportService) { }
 
@@ -19,9 +19,12 @@ export class AirportarrivalComponent implements OnInit {
     this.getAirportArr();
     setInterval(()=> { this.getAirportArr() }, 180 * 1000);
   }
+  ngOnDestroy():void{
+    this.airport.unsubscribe();
+  }
 
   getAirportArr(){
-    this.apiAirport.getEDDBArr().subscribe((data) => {
+   this.airport = this.apiAirport.getEDDBArr().subscribe((data) => {
       this.airportDataArr = [];
       this.Daten = data.data.items;
       for (const d of (this.Daten as any)) {

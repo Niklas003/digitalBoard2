@@ -49,7 +49,7 @@
 
     @keyframes textmove {
         0% { transform: translate3d(110%, 0, 0); }
-        100% { transform: translate3d(-220%, 0, 0); }
+        100% { transform: translate3d(-250%, 0, 0); }
       }
 
       @keyframes textmove-long {
@@ -65,4 +65,4 @@
       .depart-now{ animation: depart-now 3s ease 0s infinite normal forwards;}
       .hmove { animation: textmove linear 17s infinite; }
       .hmove-short { animation: textmove-short linear 17s infinite; }
-      .hmove-long { animation: textmove-long linear 30s infinite; }
+      .hmove-long { animation: textmove-long linear 40s infinite; }
