@@ -14,7 +14,7 @@ export class GruenbergComponent implements OnInit {
   timeDiff:any;
   plannedTime:any;
 
-  constructor(private api: StationService, private app: AppComponent) { }
+  constructor(private api: StationService) { }
 
   ngOnInit(): void {
     this.getStationGruenberg();
@@ -38,7 +38,7 @@ export class GruenbergComponent implements OnInit {
             product: d.line.productName,
             info: d.remarks[0],
             cancelled: d.cancelled,
-            actual: this.app.getDelayTime(d.plannedWhen, d.delay),
+            actual: d.when,
   
           });
         }

@@ -34,7 +34,8 @@ export class HauptbahnhofComponent implements OnInit {
           line: d.line.name.replace(/\D/g, ""),
           product: d.line.productName,
           info: d.remarks[0],
-          cancelled: d.cancelled
+          cancelled: d.cancelled,
+          actual: d.when
 
         });
       }
