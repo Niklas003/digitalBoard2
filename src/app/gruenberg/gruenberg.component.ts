@@ -13,8 +13,6 @@ export class GruenbergComponent implements OnInit {
   sub:any;
   timeDiff:any;
   plannedTime:any;
-  result:any;
-  errorMessage: any;
 
   constructor(private api: StationService, private app: AppComponent) { }
 
