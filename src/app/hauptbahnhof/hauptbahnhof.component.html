@@ -5,7 +5,7 @@
     <span class="text-3xl dbBold mr-10 text-center">Abfahrt</span> <span class="dbItalic text-2xl mr-5">Berlin Hauptbahnhof</span> <app-datestamp class="absolute right-0"></app-datestamp>
 </div>
 
-    <div *ngFor="let i of stationData; trackBy: identifyIfEqual" class="mt-4 bg-[#C8C8C8] min-w-full rounded-md rounded-l-lg h-20 shadow-lg">
+    <div *ngFor="let i of stationData; trackBy: identifyIfEqual" class="my-4 bg-[#C8C8C8] min-w-full rounded-md rounded-l-lg h-20 shadow-lg">
         <div class="grid grid-cols-10 items-center grid-flow-col lg:grid-flow-row">
             <div class="default w-20 h-20 rounded-l-md text-center z-10" [ngClass]="{'ice': i.product==='ICE', 'ic':i.product==='IC'||i.product==='EC', 'regio': i.product==='RE'|| i.product==='RB' || i.product==='FEX', 'flix':i.product==='FLX'}">
                 <span class="dbBold text-3xl relative top-3">{{i.product}}</span>
@@ -43,8 +43,3 @@
     
         </div>
     </div>
-
-
-    <footer class="relative m-auto mt-6 w-2/12 pb-4">
-        <button *ngIf="stationData.length > 0" (click)="getStationData()" class="rounded bg-[#ff2f2f] text-center px-8">Neu laden</button>
-    </footer>
