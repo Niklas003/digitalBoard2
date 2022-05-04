@@ -23,7 +23,7 @@ import { AirportSelectComponent } from './airport-select/airport-select.componen
     AirportarrivalComponent,
     AirportdepartureComponent,
     DetectStatusComponent,
-    AirportSelectComponent
+    AirportSelectComponent,
   ],
   imports: [
     BrowserModule,

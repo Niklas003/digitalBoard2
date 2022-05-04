@@ -22,7 +22,7 @@
             <div class="col-span-2 relative left-4">
                 <span [ngClass]="{'line-through decoration-[#ff2f2f]': i.cancelled}" class="text-black text-3xl dbBold">{{i.planned | date: 'HH:mm'}}</span>
                 <span *ngIf="i.delay > 0" class="relative bottom-4 left-1 text-[#00AA11] dbBold" [class.red-delay]="i.delay >= 5">+{{i.delay}}</span>
-                <span *ngIf="i.delay > 10" class="bg-[#4d4d4d] text-[#C8C8C8] dbBold rounded-sm px-px relative left-2">{{i.actual | date: 'HH:mm'}}</span>
+                <span *ngIf="i.delay >= 5" class="bg-[#4d4d4d] text-[#C8C8C8] dbBold rounded-sm px-px relative left-2">{{i.actual | date: 'HH:mm'}}</span>
             </div>
 
             <div *ngIf="i.platform" class="text-center relative right-2">

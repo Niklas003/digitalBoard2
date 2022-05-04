@@ -43,7 +43,7 @@ export class HauptbahnhofComponent implements OnInit {
     });
 }
 
-identifyIfEqual(item:any) {   //IMPORTANT Refresh data only if there is any change
-  return item.id;
-}
+  identifyIfEqual(item:any) {   //IMPORTANT Refresh data only if there is any change
+    return item.id;
+  }
 }
