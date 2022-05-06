@@ -6,7 +6,7 @@
 </div>
 
     <div *ngFor="let i of stationGruenberg; trackBy: identifyIfEqual" class="my-4 bg-[#C8C8C8] min-w-full rounded-md rounded-l-lg h-20 shadow-lg">
-        <div class="grid grid-cols-10 items-center grid-flow-col lg:grid-flow-row">
+        <div (click)="openDialog(i.line, i.actual, i.direction)" class="grid grid-cols-10 items-center grid-flow-col lg:grid-flow-row">
             <div class="s-bahn w-20 h-20 rounded-l-md text-center z-10">
                 <span class="dbBold text-3xl relative top-3">{{i.product}}</span>
                     <br>

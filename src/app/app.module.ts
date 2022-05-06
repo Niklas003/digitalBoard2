@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {MatDialogModule} from '@angular/material/dialog';
 import { HauptbahnhofComponent } from './hauptbahnhof/hauptbahnhof.component';
 import { GruenbergComponent } from './gruenberg/gruenberg.component';
 import { DatestampComponent } from './datestamp/datestamp.component';
@@ -13,6 +14,7 @@ import { AirportarrivalComponent } from './airportarrival/airportarrival.compone
 import { AirportdepartureComponent } from './airportdeparture/airportdeparture.component';
 import { DetectStatusComponent } from './detect-status/detect-status.component';
 import { AirportSelectComponent } from './airport-select/airport-select.component';
+import { SBahnDialogComponent } from './sbahn-dialog/sbahn-dialog.component';
 
 @NgModule({
   declarations: [
@@ -24,12 +26,14 @@ import { AirportSelectComponent } from './airport-select/airport-select.componen
     AirportdepartureComponent,
     DetectStatusComponent,
     AirportSelectComponent,
+    SBahnDialogComponent,
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     MatTabsModule,
     MatProgressSpinnerModule,
+    MatDialogModule,
     HttpClientModule,
   ],
   providers: [],

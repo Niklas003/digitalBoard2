@@ -1,6 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { StationService } from '../Services/stationService/station.service';
-import { AppComponent } from '../app.component';
+import { MatDialog } from '@angular/material/dialog';
+import { SBahnDialogComponent } from '../sbahn-dialog/sbahn-dialog.component';
+
+export interface TrainData {
+  line: string;
+  actual: any;
+  direction:any;
+}
 
 @Component({
   selector: 'app-gruenberg',
@@ -14,7 +21,7 @@ export class GruenbergComponent implements OnInit {
   timeDiff:any;
   plannedTime:any;
 
-  constructor(private api: StationService) { }
+  constructor(private api: StationService, public dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.getStationGruenberg();
@@ -55,6 +62,16 @@ export class GruenbergComponent implements OnInit {
 
   identifyIfEqual(item:any) {     //IMPORTANT Refresh data only if there is any change
     return item.id;
+  }
+
+  openDialog(line:string, actual:any, direction:string){
+    this.dialog.open(SBahnDialogComponent,
+      {
+        width: '500px',
+        data: {line: line,
+              actual: actual,
+              direction: direction},
+      });
   }
 
 }
