@@ -15,12 +15,10 @@ export class SBahnDialogComponent implements OnInit {
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: TrainData) { }
 
-  ngOnInit(): void {
-    this.arrival = this.getArrivalTime(this.data.actual);
-  }
+  ngOnInit(): void { }
 
-  getArrivalTime(actual: any):Date{ //used to get actual departure time, with delay
-    this.result =  new Date(actual).setSeconds(new Date(actual).getSeconds() + 27*60);
+  getArrivalTime(actual: any, addTime:any):Date{ //used to ETA Work +27min HWR +50min
+    this.result =  new Date(actual).setSeconds(new Date(actual).getSeconds() + addTime*60);
     return this.result
    }
 }

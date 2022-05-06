@@ -7,6 +7,7 @@ export interface TrainData {
   line: string;
   actual: any;
   direction:any;
+  cancelled:boolean;
 }
 
 @Component({
@@ -46,6 +47,7 @@ export class GruenbergComponent implements OnInit {
             info: d.remarks[0],
             cancelled: d.cancelled,
             actual: d.when,
+            status: this.setTrafficLightStatus(d.when)
   
           });
         }
@@ -64,14 +66,17 @@ export class GruenbergComponent implements OnInit {
     return item.id;
   }
 
-  openDialog(line:string, actual:any, direction:string){
+  openDialog(line:string, actual:any, direction:string, cancelled:boolean){
     this.dialog.open(SBahnDialogComponent,
       {
         width: '500px',
         data: {line: line,
               actual: actual,
-              direction: direction},
+              direction: direction,
+              cancelled: cancelled},
       });
   }
+
+  setTrafficLightStatus(time:any){}
 
 }
