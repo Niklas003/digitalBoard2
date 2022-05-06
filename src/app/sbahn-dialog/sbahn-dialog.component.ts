@@ -1,5 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import {MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { AppComponent } from '../app.component';
 import { TrainData } from '../gruenberg/gruenberg.component';
 
 
@@ -10,7 +11,8 @@ import { TrainData } from '../gruenberg/gruenberg.component';
 })
 export class SBahnDialogComponent implements OnInit {
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data: TrainData,) { }
+  arrival: any;
+  constructor(@Inject(MAT_DIALOG_DATA) public data: TrainData) { }
 
   ngOnInit(): void {
   }

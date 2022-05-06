@@ -10,8 +10,8 @@ export class AppComponent {
   title = 'digitalBoard';
   result:any;
   
-  getDelayTime(planned: any, delay:number):Date{ //used to get actual departure time, with delay
-    this.result =  new Date(planned).setSeconds(new Date(planned).getSeconds() + delay);
+  getArrivalTime(actual: any):Date{ //used to get actual departure time, with delay
+    this.result =  new Date(actual).setSeconds(new Date(actual).getSeconds() + 27);
     return this.result
    }
 }
