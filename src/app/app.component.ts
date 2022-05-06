@@ -9,9 +9,4 @@ import { Component, ViewEncapsulation } from '@angular/core';
 export class AppComponent {
   title = 'digitalBoard';
   result:any;
-  
-  getArrivalTime(actual: any):Date{ //used to get actual departure time, with delay
-    this.result =  new Date(actual).setSeconds(new Date(actual).getSeconds() + 27);
-    return this.result
-   }
 }
