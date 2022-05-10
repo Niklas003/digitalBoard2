@@ -26,6 +26,7 @@ export class HauptbahnhofComponent implements OnInit {
       if(d.line.productName !== 'Bus' && d.line.productName !== 'U' && d.line.productName !== 'S' && d.line.productName !== 'STR'){
         this.stationData.push({
 
+          id: d.tripId.replace(/\|/gi,"%7C"),
           name: d.stop.name,
           planned: d.plannedWhen,
           delay: d.delay /60,

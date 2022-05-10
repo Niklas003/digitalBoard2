@@ -35,7 +35,7 @@
                     <span *ngIf="i.info" class="dbSans text-base text-[#FF2F2F]">+++ {{i.info.text}} +++</span>
                 </div>
                 <div *ngIf="!i.info">
-                    <span class="dbSans text-base text-black relative left-6">Keine Meldungen vorhanden</span>
+                    <span class="dbSans text-base text-black relative left-6">von: <app-hauptbahnhof-details [tripId]="i.id"></app-hauptbahnhof-details></span>
                 </div>
 
             
