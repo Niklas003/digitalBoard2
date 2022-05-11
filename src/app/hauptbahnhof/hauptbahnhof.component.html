@@ -30,15 +30,14 @@
                 <span class=" text-[#656565] dbBold">Gleis</span>
             </div>
 
-            <div class="col-span-3 box-border whitespace-nowrap overflow-hidden relative right-4">
+            <div class="col-span-3 box-border whitespace-nowrap overflow-hidden relative right-4"> <!--Wegen Infos mal noch auf zugfinder.net sehen wie die das gemacht haben-->
                 <div [ngClass]="{'hmove-short':i.cancelled, 'hmove-long': !i.cancelled}">
                     <span *ngIf="i.info" class="dbSans text-base text-[#FF2F2F]">+++ {{i.info.text}} +++</span>
+                    <div *ngIf="!i.info">
+                        <span class="dbSans text-base text-black relative left-6"><app-hauptbahnhof-details [tripId]="i.id"></app-hauptbahnhof-details></span>
+                    </div>
                 </div>
-                <div *ngIf="!i.info">
-                    <span class="dbSans text-base text-black relative left-6">von: <app-hauptbahnhof-details [tripId]="i.id"></app-hauptbahnhof-details></span>
-                </div>
-
-            
+                        
             </div>
     
         </div>

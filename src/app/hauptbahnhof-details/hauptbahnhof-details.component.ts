@@ -29,7 +29,6 @@ export class HauptbahnhofDetailsComponent implements OnInit {
           });
          }
         });
-     console.log(this.hbfDetails[0].herkunft);
     }
   
 }
