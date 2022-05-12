@@ -1,7 +1,7 @@
-<p>Halte von {{data.name}}</p>
+<p class="text-xl dbSans">Halte vom <span class="dbBlackItalic">{{data.name}}</span></p>
 <div *ngIf="hbfDetails.length !==0">
     <hr>
-    <span *ngFor="let i of hbfDetails" class="dbSans">{{i.herkunft}}<span class="dbBold"> + </span></span>
+    <span *ngFor="let i of hbfDetails" class="dbSans" [ngClass]="{'dbBlack': i.station==='Berlin Hbf' || i.station === 'Berlin Hbf (tief)'}">{{i.station}}<span class="dbBold"> + </span></span>
     <hr>
 </div>
     <mat-spinner *ngIf="hbfDetails.length === 0" color="warn" class="mx-auto my-10"></mat-spinner>

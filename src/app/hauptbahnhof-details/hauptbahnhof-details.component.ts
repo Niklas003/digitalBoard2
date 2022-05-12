@@ -29,7 +29,7 @@ export class HauptbahnhofDetailsComponent implements OnInit {
          for(const d of (data.stopovers as any)){
           this.hbfDetails.push({
            
-          herkunft: d.stop.name,
+          station: d.stop.name,
           });
          }
         });
