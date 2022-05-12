@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
+import {MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { HaupbahnhofDetailServiceService } from '../Services/hauptbahnhofDetailService/haupbahnhof-detail.service';
 
 @Component({
@@ -7,25 +8,28 @@ import { HaupbahnhofDetailServiceService } from '../Services/hauptbahnhofDetailS
   styleUrls: ['./hauptbahnhof-details.component.scss']
 })
 export class HauptbahnhofDetailsComponent implements OnInit {
-  @Input() tripId:any;
 
-  constructor(private hbfApi: HaupbahnhofDetailServiceService) { }
+  constructor(private hbfApi: HaupbahnhofDetailServiceService, @Inject(MAT_DIALOG_DATA) public data: any) { }
 
   hbfDetails:any = [];
   herkunft:any;
 
   ngOnInit(): void {
     this.getDetails();
+    console.log(this.hbfDetails);
   }
 
    getDetails(){
-     this.hbfApi.getHbfDetails(this.tripId).subscribe(
+     this.hbfApi.getHbfDetails(this.data.id).subscribe(
        data => {
          this.hbfDetails = [];
+         this.hbfDetails.push({
+           name: data.line.name
+         });
          for(const d of (data.stopovers as any)){
           this.hbfDetails.push({
            
-          herkunft: d.stop.name
+          herkunft: d.stop.name,
           });
          }
         });

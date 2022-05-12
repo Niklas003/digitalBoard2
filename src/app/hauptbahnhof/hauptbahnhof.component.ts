@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { StationService } from '../Services/stationService/station.service';
+import { MatDialog } from '@angular/material/dialog';
+import { HauptbahnhofDetailsComponent } from '../hauptbahnhof-details/hauptbahnhof-details.component';
 
 
 @Component({
@@ -10,8 +12,9 @@ import { StationService } from '../Services/stationService/station.service';
 export class HauptbahnhofComponent implements OnInit {
 
   stationData: any = [];
+  name:any;
 
-  constructor(private api: StationService) { }
+  constructor(private api: StationService, public dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.getStationData();
@@ -46,5 +49,16 @@ export class HauptbahnhofComponent implements OnInit {
 
   identifyIfEqual(item:any) {   //IMPORTANT Refresh data only if there is any change
     return item.id;
+  }
+
+  openDetails(id:any, product:any, line:any){
+    this.name = product + " "+ line
+    this.dialog.open(HauptbahnhofDetailsComponent,
+      {
+        width: '500px',
+        data: {id: id,
+                name: this.name
+              },
+      });
   }
 }

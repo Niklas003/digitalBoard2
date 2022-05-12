@@ -8,6 +8,7 @@ export interface TrainData {
   actual: any;
   direction:any;
   cancelled:boolean;
+  id:string;
 }
 
 @Component({
@@ -21,6 +22,7 @@ export class GruenbergComponent implements OnInit {
   sub:any;
   timeDiff:any;
   plannedTime:any;
+  id:any
 
   constructor(private api: StationService, public dialog: MatDialog) { }
 
@@ -37,6 +39,7 @@ export class GruenbergComponent implements OnInit {
         if(d.line.productName === 'S'){
           this.stationGruenberg.push({
   
+            id: d.tripId.replace(/\|/gi,"%7C"),
             name: d.stop.name,
             planned: d.plannedWhen,
             delay: d.delay /60,
@@ -48,7 +51,6 @@ export class GruenbergComponent implements OnInit {
             cancelled: d.cancelled,
             actual: d.when,
             status: this.setTrafficLightStatus(d.when)
-  
           });
         }
       }
@@ -66,14 +68,15 @@ export class GruenbergComponent implements OnInit {
     return item.id;
   }
 
-  openDialog(line:string, actual:any, direction:string, cancelled:boolean){
+  openDialog(line:string, actual:any, direction:string, cancelled:boolean, id:string){
     this.dialog.open(SBahnDialogComponent,
       {
         width: '500px',
         data: {line: line,
               actual: actual,
               direction: direction,
-              cancelled: cancelled},
+              cancelled: cancelled,
+              id:id},
       });
   }
 

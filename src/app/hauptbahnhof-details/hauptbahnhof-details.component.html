@@ -1,1 +1,7 @@
-<span *ngFor="let i of hbfDetails">{{i.herkunft}} + </span>
+<p>Halte von {{data.name}}</p>
+<div *ngIf="hbfDetails.length !==0">
+    <hr>
+    <span *ngFor="let i of hbfDetails" class="dbSans">{{i.herkunft}}<span class="dbBold"> + </span></span>
+    <hr>
+</div>
+    <mat-spinner *ngIf="hbfDetails.length === 0" color="warn" class="mx-auto my-10"></mat-spinner>

@@ -6,7 +6,7 @@
 </div>
 
     <div *ngFor="let i of stationData; trackBy: identifyIfEqual" class="my-4 bg-[#C8C8C8] min-w-full rounded-md rounded-l-lg h-20 shadow-lg">
-        <div class="grid grid-cols-10 items-center grid-flow-col lg:grid-flow-row">
+        <div (click)="openDetails(i.id, i.product, i.line)" class="grid grid-cols-10 items-center grid-flow-col lg:grid-flow-row">
             <div class="default w-20 h-20 rounded-l-md text-center z-10" [ngClass]="{'ice': i.product==='ICE', 'ic':i.product==='IC'||i.product==='EC', 'regio': i.product==='RE'|| i.product==='RB' || i.product==='FEX', 'flix':i.product==='FLX'}">
                 <span class="dbBold text-3xl relative top-3">{{i.product}}</span>
                     <br>
@@ -33,11 +33,10 @@
             <div class="col-span-3 box-border whitespace-nowrap overflow-hidden relative right-4"> <!--Wegen Infos mal noch auf zugfinder.net sehen wie die das gemacht haben-->
                 <div [ngClass]="{'hmove-short':i.cancelled, 'hmove-long': !i.cancelled}">
                     <span *ngIf="i.info" class="dbSans text-base text-[#FF2F2F]">+++ {{i.info.text}} +++</span>
-                    <div *ngIf="!i.info">
-                        <span class="dbSans text-base text-black relative left-6"><app-hauptbahnhof-details [tripId]="i.id"></app-hauptbahnhof-details></span>
-                    </div>
                 </div>
-                        
+                <div *ngIf="!i.info">
+                    <span class="dbSans text-base text-black relative left-6">Keine Meldungen vorhanden</span>
+                </div>
             </div>
     
         </div>
