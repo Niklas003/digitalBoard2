@@ -42,7 +42,7 @@
 
             <div class="col-span-3 box-border whitespace-nowrap overflow-hidden relative right-4">
                 <div>
-                    <span *ngIf="i.info" class="dbSans text-base text-[#FF2F2F]"><marquee direction="left">+++ {{i.info.text}} +++</marquee></span>
+                    <marquee *ngIf="i.info" class="dbSans text-base text-[#FF2F2F]" direction="left">+++ {{i.info.text}} +++</marquee>
                 </div>
                 <div *ngIf="!i.info">
                     <span class="dbSans text-base text-black relative left-6">Keine Meldungen vorhanden</span>
