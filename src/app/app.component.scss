@@ -61,9 +61,9 @@
         0% { transform: translate3d(110%, 0, 0); }
         100% { transform: translate3d(-95%, 0, 0); }
       }
-
+      
 
       .depart-now{ animation: depart-now 3s ease 0s infinite normal forwards;}
       .hmove { animation: textmove linear 17s infinite; }
-      .hmove-short { animation: textmove-short linear 17s infinite; }
+      .hmove-short { animation: textmove-short linear 35s infinite; }
       .hmove-long { animation: textmove-long linear 35s infinite; }

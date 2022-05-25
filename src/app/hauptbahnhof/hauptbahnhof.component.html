@@ -30,9 +30,9 @@
                 <span class=" text-[#656565] dbBold">Gleis</span>
             </div>
 
-            <div class="col-span-3 box-border whitespace-nowrap overflow-hidden relative right-4"> <!--Wegen Infos mal noch auf zugfinder.net sehen wie die das gemacht haben-->
-                <div [ngClass]="{'hmove-short':i.cancelled, 'hmove-long': !i.cancelled}">
-                    <span *ngIf="i.info" class="dbSans text-base text-[#FF2F2F]">+++ {{i.info.text}} +++</span>
+            <div class="col-span-3 box-border width-text whitespace-nowrap overflow-hidden relative right-4"> <!--Wegen Infos mal noch auf zugfinder.net sehen wie die das gemacht haben-->
+                <div [ngClass]="{'hmove-short':i.cancelled}">
+                    <span *ngIf="i.info" class="dbSans padd text-base text-[#FF2F2F]"><marquee direction="left">+++ {{i.info.text}} +++</marquee></span>
                 </div>
                 <div *ngIf="!i.info">
                     <span class="dbSans text-base text-black relative left-6">Keine Meldungen vorhanden</span>
