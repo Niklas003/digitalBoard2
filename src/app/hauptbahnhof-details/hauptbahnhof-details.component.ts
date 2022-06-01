@@ -16,7 +16,6 @@ export class HauptbahnhofDetailsComponent implements OnInit {
 
   ngOnInit(): void {
     this.getDetails();
-    console.log(this.hbfDetails);
   }
 
    getDetails(){
