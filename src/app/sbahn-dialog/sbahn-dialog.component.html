@@ -1,6 +1,8 @@
 
+<div *ngIf="data.direction !== 'Flughafen BER - Terminal 1-2 (S-Bahn)'&& !data.cancelled">
     <h4 class="text-xl dbBlack">S{{data.line}} nach {{data.direction}}</h4>
     <hr>
+</div>
 <div *ngIf="data.direction !== 'Flughafen BER - Terminal 1-2 (S-Bahn)'&& !data.cancelled && !schoeneweide && !treptow">
     <div class="animate-pulse flex space-x-4">
         <div class="flex-1 space-y-6 py-1">
