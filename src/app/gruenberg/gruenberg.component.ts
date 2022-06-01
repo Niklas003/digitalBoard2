@@ -9,6 +9,7 @@ export interface TrainData {
   direction:any;
   cancelled:boolean;
   id:string;
+  status:string;
 }
 
 @Component({
@@ -50,7 +51,7 @@ export class GruenbergComponent implements OnInit {
             info: d.remarks[0],
             cancelled: d.cancelled,
             actual: d.when,
-            status: this.setTrafficLightStatus(d.when)
+            status: this.setTrafficLightStatus(d.when, d.cancelled)
           });
         }
       }
@@ -68,7 +69,7 @@ export class GruenbergComponent implements OnInit {
     return item.id;
   }
 
-  openDialog(line:string, actual:any, direction:string, cancelled:boolean, id:string){
+  openDialog(line:string, actual:any, direction:string, cancelled:boolean, id:string,status:string){
     this.dialog.open(SBahnDialogComponent,
       {
         width: '500px',
@@ -76,10 +77,16 @@ export class GruenbergComponent implements OnInit {
               actual: actual,
               direction: direction,
               cancelled: cancelled,
-              id:id},
+              id:id,
+              status:status},
       });
   }
 
-  setTrafficLightStatus(time:any){}
+  setTrafficLightStatus(time:any, cancelled:any):any{
+    if(this.getDiff(time)>450000){return "s-bahn"}  //s-bahn
+    if(this.getDiff(time)<=450000 && this.getDiff(time) >= 250000 && !cancelled){return "gelb"} //gelb
+    if(this.getDiff(time)<250000 || cancelled){return "regio"} //regio
+    if(this.getDiff(time)<= 0 && !cancelled){return "depart-now"} //depart-now
+  }
 
 }
