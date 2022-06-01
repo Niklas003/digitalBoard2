@@ -16,6 +16,7 @@ export class SBahnDialogComponent implements OnInit {
   treptow: boolean = false;
   treptowArrival: any;
   schoeneweide: boolean = false;
+  schoeneweideArrival:any;
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: TrainData, public gruenbergDet: GruenbergDetailService) { }
 
@@ -34,11 +35,14 @@ export class SBahnDialogComponent implements OnInit {
         for(const d of (data.stopovers as any)){
           if(d.stop.name == "Berlin-Schöneweide (S)" && !this.schoeneweide){
           this.schoeneweide = true;
+          this.schoeneweideArrival = new Date(d.departure);
+          this.schoeneweideArrival =  this.schoeneweideArrival.setMinutes(this.schoeneweideArrival.getMinutes() + 28);
         }
 
           if(d.stop.name == "Berlin Treptower Park" && !this.treptow){
             this.treptow = true;
-            this.treptowArrival = d.departure; //Need to add 5 min to Date String for actual Arrival Time
+            this.treptowArrival = new Date(d.departure);
+            this.treptowArrival =  this.treptowArrival.setMinutes(this.treptowArrival.getMinutes() + 5);
           }
         }
        });

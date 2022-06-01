@@ -1,6 +1,17 @@
-<div *ngIf="data.direction !== 'Flughafen BER - Terminal 1-2 (S-Bahn)'&& !data.cancelled">
-    <h4 class="text-xl dbBlack">S{{data.line}} nach {{data.direction}}</h4>
+
+    <h4 class="text-xl"><b>S{{data.line}} nach {{data.direction}}</b></h4>
     <hr>
+<div *ngIf="data.direction !== 'Flughafen BER - Terminal 1-2 (S-Bahn)'&& !data.cancelled && !schoeneweide && !treptow">
+    <div class="animate-pulse flex space-x-4">
+        <div class="flex-auto space-y-6 py-2">
+          <div class="h-4 bg-gray-300 rounded"></div>
+          <div class="h-4 bg-gray-300 rounded"></div>
+          </div>
+        </div>
+    </div>
+
+
+<div *ngIf="data.direction !== 'Flughafen BER - Terminal 1-2 (S-Bahn)'&& !data.cancelled">
     <p *ngIf="data.line === '9' && treptow">Work <span class="dbSans">ETA</span>: <span class="text-lg">{{treptowArrival | date: "HH:mm"}}</span></p>
     <p *ngIf="schoeneweide" class="mt-2">HWR <span class="dbSans">ETA</span>: <span class="text-lg">{{this.getArrivalTime(this.data.actual, 50) | date: "HH:mm"}}</span> <span class="dbSans text-xs"> via Schöneweide</span></p>
     <hr>
