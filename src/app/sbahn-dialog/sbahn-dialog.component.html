@@ -6,8 +6,8 @@
 <div *ngIf="data.direction !== 'Flughafen BER - Terminal 1-2 (S-Bahn)'&& !data.cancelled && !schoeneweide && !treptow">
     <div class="animate-pulse flex space-x-4">
         <div class="flex-1 space-y-6 py-1">
-          <div class="h-4 bg-gray-200 rounded"></div>
-          <div class="h-4 bg-gray-200 rounded"></div>
+          <div *ngIf="data.line == '9'" class="h-4 bg-gray-200 rounded"></div>
+          <div [ngClass]="{'mt-2': data.line=='45'}" class="h-4 bg-gray-200 rounded"></div>
           </div>
         </div>
     </div>
