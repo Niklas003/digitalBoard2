@@ -12,12 +12,13 @@ export class AirportarrivalComponent implements OnInit, OnDestroy {
   Daten:any;
   data: any;
   airport: any;
+  err:any;
   
   constructor(private apiAirport: AirportService) { }
 
   ngOnInit(): void {
     this.getAirportArr();
-    setInterval(()=> { this.getAirportArr() }, 180 * 1000);
+    setInterval(()=> {if(this.err){this.getAirportArr()} }, 180 * 1000);
   }
   ngOnDestroy():void{
     this.airport.unsubscribe();
@@ -41,8 +42,10 @@ export class AirportarrivalComponent implements OnInit, OnDestroy {
         });
       
     }
-    console.log('AIRPORT DATA: ', this.airportDataArr);
-    });
+    },
+    err => this.err = err.ok,
+    );
+    
   }
 
   checkArrayStatus(){
