@@ -48,7 +48,7 @@ export class AirportarrivalComponent implements OnInit, OnDestroy {
     
   }
 
-  checkArrayStatus(){
+  checkArrayStatus():boolean{
     if(this.airportDataArr.length()>0){
       return true;
     }
