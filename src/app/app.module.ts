@@ -18,6 +18,7 @@ import { AirportSelectComponent } from './airport-select/airport-select.componen
 import { SBahnDialogComponent } from './sbahn-dialog/sbahn-dialog.component';
 import { HauptbahnhofDetailsComponent } from './hauptbahnhof-details/hauptbahnhof-details.component';
 import { ManualAirportRequestComponent } from './manual-airport-request/manual-airport-request.component';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { ManualAirportRequestComponent } from './manual-airport-request/manual-a
     MatDialogModule,
     HttpClientModule,
     MatRippleModule,
+    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
