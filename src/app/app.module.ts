@@ -7,6 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatDialogModule} from '@angular/material/dialog';
+import {MatRippleModule} from '@angular/material/core';
 import { HauptbahnhofComponent } from './hauptbahnhof/hauptbahnhof.component';
 import { GruenbergComponent } from './gruenberg/gruenberg.component';
 import { DatestampComponent } from './datestamp/datestamp.component';
@@ -39,6 +40,7 @@ import { ManualAirportRequestComponent } from './manual-airport-request/manual-a
     MatProgressSpinnerModule,
     MatDialogModule,
     HttpClientModule,
+    MatRippleModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -11,13 +11,13 @@ export class AirportdepartureComponent implements OnInit {
   airportDataDep: any = [];
   Daten:any;
   data: any;
-  err: any;
+  error: any;
 
   constructor(private apiAirport: AirportService) { }
 
   ngOnInit(): void {
     this.getAirportDep();
-    setInterval(()=> {if(this.err){ this.getAirportDep()} }, 180 * 1000)
+    setInterval(()=> {if(this.error){ this.getAirportDep()} }, 180 * 1000)
   }
 
   getAirportDep(){
@@ -39,7 +39,8 @@ export class AirportdepartureComponent implements OnInit {
       
     }
     },
-    err => this.err = err.ok,);
+    err => this.error = err.ok,
+    );
   }
 
 }

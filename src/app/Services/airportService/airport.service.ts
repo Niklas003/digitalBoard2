@@ -16,21 +16,22 @@ export class AirportService {
   constructor(private http: HttpClient) { }
 
   public getEDDBDep(): Observable<any> { 
-    this.tomorrow = new Date();
-    this.tomorrow.setDate(this.tomorrow.getDate() + 1);
-    this.tomorrow =  this.tomorrow.toISOString();
-    this.today = new Date();
-    this.today = this.today.toISOString();
+    this.setTime();
     return this.http.get(berUrlDep + this.today+ '&dateUntil='+this.tomorrow+'&search=&lang=de&itemsPerPage=9');
   }
 
   public getEDDBArr(): Observable<any> {
+    this.setTime();
+    return this.http.get(berUrlArr + this.today+ '&dateUntil='+this.tomorrow+'&search=&lang=de&itemsPerPage=9');
+  }
+
+  public setTime(){
     this.tomorrow = new Date();
-    this.tomorrow.setDate(this.tomorrow.getDate() + 1);
-    this.tomorrow =  this.tomorrow.toISOString();
     this.today = new Date();
     this.today = this.today.toISOString();
-    return this.http.get(berUrlArr + this.today+ '&dateUntil='+this.tomorrow+'&search=&lang=de&itemsPerPage=9');
+    this.tomorrow.setDate(this.tomorrow.getDate() + 1);
+    this.tomorrow =  this.tomorrow.toISOString();
+    
   }
 
 }

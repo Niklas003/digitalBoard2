@@ -1,7 +1,7 @@
 <div class="mt-4 mx-auto">
     <span class="text-3xl dbBold mr-10 text-center">Abflug</span> <span class="dbItalic text-2xl mr-5">Flughafen BER</span> <app-datestamp class="absolute right-0"></app-datestamp>
 </div>
-<app-manual-airport-request *ngIf="!this.err"></app-manual-airport-request>
+<app-manual-airport-request></app-manual-airport-request>
     <div *ngFor="let i of airportDataDep" class="my-4 bg-[#C8C8C8] min-w-full rounded-md rounded-l-lg h-20 shadow-lg">
         <div class="grid grid-cols-10 items-center grid-flow-col lg:grid-flow-row">
             <div class="default w-20 h-20 rounded-l-md text-center z-10">

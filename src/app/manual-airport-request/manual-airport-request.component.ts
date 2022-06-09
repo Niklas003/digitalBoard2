@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { AirportarrivalComponent } from '../airportarrival/airportarrival.component';
 
 @Component({
   selector: 'app-manual-airport-request',
@@ -8,13 +7,15 @@ import { AirportarrivalComponent } from '../airportarrival/airportarrival.compon
 })
 export class ManualAirportRequestComponent implements OnInit {
 
-  constructor(private AirportArr: AirportarrivalComponent) { }
+  constructor() { 
+    
+  }
 
   ngOnInit(): void {
   }
 
   loadData(){
-    this.AirportArr.getAirportArr();
+    
   }
 
 }
