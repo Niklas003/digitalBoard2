@@ -16,6 +16,7 @@ import { DetectStatusComponent } from './detect-status/detect-status.component';
 import { AirportSelectComponent } from './airport-select/airport-select.component';
 import { SBahnDialogComponent } from './sbahn-dialog/sbahn-dialog.component';
 import { HauptbahnhofDetailsComponent } from './hauptbahnhof-details/hauptbahnhof-details.component';
+import { ManualAirportRequestComponent } from './manual-airport-request/manual-airport-request.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { HauptbahnhofDetailsComponent } from './hauptbahnhof-details/hauptbahnho
     AirportSelectComponent,
     SBahnDialogComponent,
     HauptbahnhofDetailsComponent,
+    ManualAirportRequestComponent,
   ],
   imports: [
     BrowserModule,
