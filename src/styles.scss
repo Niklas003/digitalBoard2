@@ -96,5 +96,5 @@ $digitalBoard-theme: mat.define-light-theme((
 }
 
 html, body { height: 100%;}
-body { margin: 0; font-family: dbBold !important; -ms-overflow-style: none;  /* IE and Edge */
+body { margin: 0; font-family: dbBold,Tahoma, Verdana, sans-serif !important; -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none; }
