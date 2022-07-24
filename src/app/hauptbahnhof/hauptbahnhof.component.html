@@ -14,8 +14,8 @@
             </div>
 
             <div class="col-span-3 box-border whitespace-nowrap overflow-hidden">
-                <div [ngClass]="{'hmove': direction.offsetWidth>280}">
-                    <span #direction class="dbBold text-2xl text-[#656565]">{{i.direction}}</span>
+                <div [ngClass]="{'hmove': destination.offsetWidth>280}">
+                    <span #destination class="dbBold text-2xl text-[#656565]">{{i.destination}}</span>
                 </div>
             </div>
 
@@ -32,7 +32,7 @@
 
             <div class="col-span-3 box-border width-text whitespace-nowrap overflow-hidden relative right-4"> <!--Wegen Infos mal noch auf zugfinder.net sehen wie die das gemacht haben-->
                 <div>
-                    <marquee *ngIf="i.info" class="dbSans text-base text-[#FF2F2F]" direction="left">+++ {{i.info.text}} +++</marquee>
+                    <marquee *ngIf="i.info" class="dbSans text-base text-[#FF2F2F]" destination="left">+++ {{i.info.text}} +++</marquee>
                 </div>
                 <div *ngIf="!i.info">
                     <span class="dbSans text-base text-black relative left-6">Keine Meldungen vorhanden</span>

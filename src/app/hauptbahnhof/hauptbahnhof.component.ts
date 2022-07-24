@@ -34,7 +34,7 @@ export class HauptbahnhofComponent implements OnInit {
           planned: d.plannedWhen,
           delay: d.delay /60,
           platform: d.platform,
-          direction: d.direction,
+          destination: d.destination.name,
           line: d.line.name.replace(/\D/g, ""),
           product: d.line.productName,
           info: d.remarks[0],
