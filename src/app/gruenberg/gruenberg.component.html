@@ -4,9 +4,9 @@
     <span class="text-3xl dbBold mr-10 text-center">Abfahrt</span> <span class="dbItalic text-2xl mr-5">Grünbergallee</span> <app-datestamp class="absolute right-0"></app-datestamp>
 </div>
 
-    <div *ngFor="let i of stationGruenberg; trackBy: identifyIfEqual" class="my-4 bg-[#C8C8C8] min-w-full rounded-md rounded-l-lg h-20 shadow-lg">
+    <div *ngFor="let i of stationGruenberg; trackBy: identifyIfEqual" class="my-4 bg-[#131821] border-2 border-white min-w-full rounded-md rounded-l-lg h-20 shadow-lg">
         <div (click)="openDialog(i.line, i.actual, i.direction, i.cancelled, i.id, i.status)" class="grid grid-cols-10 items-center grid-flow-col lg:grid-flow-row">
-            <div class="s-bahn w-20 h-20 rounded-l-md text-center z-10">
+            <div class="s-bahn w-20 h-[4.75rem] rounded-l-md text-center z-10">
                 <span class="dbBold text-3xl relative top-3">{{i.product}}</span>
                     <br>
                 <span class="dbSans text-base relative top-3">{{i.line}}</span>
@@ -14,12 +14,12 @@
 
             <div class="col-span-3 box-border whitespace-nowrap overflow-hidden">
                 <div [ngClass]="{'hmove': direction.offsetWidth>280}">
-                    <span #direction class="dbBold text-2xl text-[#656565]">{{i.direction}}</span>
+                    <span #direction class="dbBold text-2xl text-white">{{i.direction}}</span>
                 </div>
             </div>
 
             <div class="col-span-1 relative left-4">
-                <span [ngClass]="{'line-through decoration-[#ff2f2f]': i.cancelled}" class="text-black text-3xl dbBold">{{i.planned | date: 'HH:mm'}}</span>
+                <span [ngClass]="{'line-through decoration-[#EC0016]': i.cancelled}" class="text-white text-3xl dbBold">{{i.planned | date: 'HH:mm'}}</span>
                 <span *ngIf="i.delay > 0" class="relative bottom-4 left-1 text-[#00AA11] dbBold" [class.red-delay]="i.delay >= 5">+{{i.delay}}</span>
             </div>
 
@@ -35,16 +35,16 @@
             </div>
 
             <div *ngIf="i.platform" class="text-center relative right-2">
-                <span class="text-black text-3xl dbBold relative top-2">{{i.platform}}</span><br>
-                <span class=" text-[#656565] dbBold">Gleis</span>
+                <span class="text-white text-3xl dbBold relative top-2">{{i.platform}}</span><br>
+                <span class=" text-[#AFB4BB] dbBold">Gleis</span>
             </div>
 
             <div class="col-span-3 box-border whitespace-nowrap overflow-hidden relative right-4">
                 <div>
-                    <marquee *ngIf="i.info" class="dbSans text-base text-[#FF2F2F]" direction="left">+++ {{i.info.text}} +++</marquee>
+                    <marquee *ngIf="i.info" class="dbSans text-base text-[#EC0016]" direction="left">+++ {{i.info.text}} +++</marquee>
                 </div>
                 <div *ngIf="!i.info">
-                    <span class="dbSans text-base text-black relative left-6">Keine Meldungen vorhanden</span>
+                    <span class="dbSans text-base text-white relative left-6">Keine Meldungen vorhanden</span>
                 </div>
             
             </div>
