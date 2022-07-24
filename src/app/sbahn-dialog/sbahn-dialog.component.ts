@@ -33,13 +33,13 @@ export class SBahnDialogComponent implements OnInit {
     this.gruenbergDet.getGruenbergDetails(this.data.id).subscribe(
       data => {
         for(const d of (data.stopovers as any)){
-          if(d.stop.name == "Berlin-Schöneweide (S)" && !this.schoeneweide){
+          if(d.stop.name == "Berlin-Schöneweide (S)" && !this.schoeneweide){ //look if the train stops at schöneweide
           this.schoeneweide = true;
           this.schoeneweideArrival = new Date(d.departure);
           this.schoeneweideArrival =  this.schoeneweideArrival.setMinutes(this.schoeneweideArrival.getMinutes() + 28);
         }
 
-          if(d.stop.name == "Berlin Treptower Park" && !this.treptow){
+          if(d.stop.name == "Berlin Treptower Park" && !this.treptow){  //look if train stops at Treptower Park
             this.treptow = true;
             this.treptowArrival = new Date(d.departure);
             this.treptowArrival =  this.treptowArrival.setMinutes(this.treptowArrival.getMinutes() + 5);

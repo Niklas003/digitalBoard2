@@ -15,10 +15,10 @@
 
 <div *ngIf="data.direction !== 'Flughafen BER - Terminal 1-2 (S-Bahn)'&& !data.cancelled">
     <p *ngIf="data.line === '9' && treptow">Work <span class="dbSans">ETA</span>: <span class="text-lg">{{treptowArrival | date: "HH:mm"}}</span></p>
-    <p *ngIf="schoeneweide" class="mt-2">HWR <span class="dbSans">ETA</span>: <span class="text-lg">{{this.getArrivalTime(this.data.actual, 50) | date: "HH:mm"}}</span> <span class="dbSans text-xs"> via Schöneweide</span></p>
+    <p *ngIf="schoeneweide" [ngClass]="{'mt-2': treptow}">HWR <span class="dbSans">ETA</span>: <span class="text-lg">{{this.getArrivalTime(this.data.actual, 50) | date: "HH:mm"}}</span> <span class="dbSans text-xs"> via Schöneweide</span></p>
     <hr>
 </div>
-<span *ngIf="!data.cancelled || data.direction !== 'Flughafen BER - Terminal 1-2 (S-Bahn)'|| data.cancelled" class="mt-2">Status: <span class="relative inline-flex rounded-full p-2 align-text-bottom" [ngClass]="data.status"></span></span>
+<span *ngIf="!data.cancelled && data.direction !== 'Flughafen BER - Terminal 1-2 (S-Bahn)'" class="mt-2">Status: <span class="relative inline-flex rounded-full p-2 align-text-bottom" [ngClass]="data.status"></span></span>
 
 <div *ngIf="data.direction === 'Flughafen BER - Terminal 1-2 (S-Bahn)'|| data.cancelled" class="text-center">
     <p>Keine Relevanten ETA Informationen vorhanden</p>
