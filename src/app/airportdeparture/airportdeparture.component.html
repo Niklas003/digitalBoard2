@@ -2,9 +2,9 @@
     <span class="text-3xl dbBold mr-10 text-center">Abflug</span> <span class="dbItalic text-2xl mr-5">Flughafen BER</span> <app-datestamp class="absolute right-0"></app-datestamp>
 </div>
 <app-manual-airport-request></app-manual-airport-request>
-    <div *ngFor="let i of airportDataDep" class="my-4 bg-[#131821] border-2 border-white min-w-full rounded-md rounded-l-lg h-20 shadow-lg">
+    <div *ngFor="let i of airportDataDep" class="my-4 bg-[#282D37] min-w-full rounded-md rounded-l-lg h-20 shadow-lg">
         <div class="grid grid-cols-10 items-center grid-flow-col lg:grid-flow-row">
-            <div class="default w-20 h-[4.75rem] rounded-l-md text-center z-10">
+            <div class="default w-20 h-20 rounded-l-md text-center z-10">
                 <span class="dbBold text-3xl relative top-3">{{i.airlineCode}}</span>
                     <br>
                 <span class="dbSans text-base relative top-3">{{i.number}}</span>
