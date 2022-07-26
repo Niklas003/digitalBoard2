@@ -4,6 +4,8 @@ The intention of this project is to create a digital departure Board. The Board 
 
 The Board also shows additional information, e.g. when a train/plane is delayed or if there is a reason why the train service is disrupted.
 
+View this Project at a dimension of 1024x600 pixel because it was not planned to design this responsive.
+
 ## Angular
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.0.
