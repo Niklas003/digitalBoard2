@@ -55,7 +55,7 @@ export class HauptbahnhofComponent implements OnInit {
     this.name = product + " "+ line
     this.dialog.open(HauptbahnhofDetailsComponent,
       {
-        width: '500px',
+        width: '600px',
         data: {id: id,
                 name: this.name
               },

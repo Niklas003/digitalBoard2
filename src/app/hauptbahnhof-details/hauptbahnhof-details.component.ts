@@ -23,11 +23,15 @@ export class HauptbahnhofDetailsComponent implements OnInit {
        data => {
          this.hbfDetails = [];
          this.hbfDetails.push({
-           name: data.line.name
+           name: data.line.name,
+           cancelled: data.cancelled
          });
          for(const d of (data.stopovers as any)){
           this.hbfDetails.push({
-           
+          depDelay: d.departureDelay/60,
+          planDep: d.plannedDeparture,  
+          platformArr: d.arrivalPlatform,
+          platformDep: d.departurePlatform, 
           station: d.stop.name,
           });
          }

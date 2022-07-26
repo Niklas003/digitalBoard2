@@ -1,9 +1,50 @@
-<p class="text-xl dbSans">Halte vom <span class="dbBlackItalic">{{data.name}}</span></p>
+<p mat-dialog-title class="text-xl dbSans">Halte vom <span class="dbBlackItalic">{{data.name}}</span></p>
+<span *ngIf="data.cancelled" class="red-delay dbSans">Fahrt fällt aus</span>
+<div class="dbBoldItalic grid grid-cols-6 grid-flow-col">
+    <span class="col-span-3">Station</span>
+    <span>Gleis</span>
+    <span>Abfahrt</span>
+</div>
+<hr>
+<mat-dialog-content>
+<div *ngIf="hbfDetails.length == 0">
+    <div class="animate-pulse grid grid-cols-6 grid-flow-col space-x-4">
+        <div class="space-y-6 py-1 col-span-3">
+          <div class="h-4 bg-gray-200 rounded"></div>
+          <div class="h-4 bg-gray-200 rounded"></div>
+          <div class="h-4 bg-gray-200 rounded"></div>
+          <div class="h-4 bg-gray-200 rounded"></div>
+          <div class="h-4 bg-gray-200 rounded"></div>
+          <div class="h-4 bg-gray-200 rounded"></div>
+        </div>
+
+        <div class="space-y-6 py-1">
+            <div class="h-4 bg-gray-200 rounded"></div>
+            <div class="h-4 bg-gray-200 rounded"></div>
+            <div class="h-4 bg-gray-200 rounded"></div>
+            <div class="h-4 bg-gray-200 rounded"></div>
+            <div class="h-4 bg-gray-200 rounded"></div>
+            <div class="h-4 bg-gray-200 rounded"></div>
+        </div>
+
+        <div class="space-y-6 py-1">
+            <div class="h-4 bg-gray-200 rounded"></div>
+            <div class="h-4 bg-gray-200 rounded"></div>
+            <div class="h-4 bg-gray-200 rounded"></div>
+            <div class="h-4 bg-gray-200 rounded"></div>
+            <div class="h-4 bg-gray-200 rounded"></div>
+            <div class="h-4 bg-gray-200 rounded"></div>
+        </div>
+    </div>
+</div>
+    
 <div *ngIf="hbfDetails.length !==0">
-    <hr>
-    <span *ngFor="let i of hbfDetails" class="dbSans" [ngClass]="{'dbBlack': i.station==='Berlin Hbf' || i.station === 'Berlin Hbf (tief)'}">{{i.station}}<span class="dbBold"> + </span></span>
+    <div *ngFor="let i of hbfDetails; index as ind" class="dbSans grid grid-cols-6 grid-flow-col mb-2" [ngClass]="{'dbBlack': i.station==='Berlin Hbf' || i.station === 'Berlin Hbf (tief)'}">
+        <div class="col-span-3">{{i.station}}</div>
+        <div>{{i.platformArr}}</div>
+        <div>{{i.planDep | date: "HH:mm"}} <span class="text-sm text-[#00AA11] dbBold" [class.red-delay]="i.depDelay >= 5" *ngIf="i.depDelay>0">+{{i.depDelay}}</span></div>
+    </div>
     <hr>
 </div>
-    <mat-spinner *ngIf="hbfDetails.length === 0" color="warn" class="mx-auto my-10"></mat-spinner>
     <app-detect-status></app-detect-status>
-
+</mat-dialog-content>
