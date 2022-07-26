@@ -33,6 +33,7 @@ export class HauptbahnhofDetailsComponent implements OnInit {
           platformArr: d.arrivalPlatform,
           platformDep: d.departurePlatform, 
           station: d.stop.name,
+          stopCancelled: d.cancelled
           });
          }
         });

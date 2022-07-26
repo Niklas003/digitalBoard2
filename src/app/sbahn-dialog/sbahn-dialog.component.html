@@ -3,7 +3,7 @@
     <h4 class="text-xl dbBlack">S{{data.line}} nach {{data.direction}}</h4>
     <hr>
 </div>
-<div *ngIf="!gruenbergAfter && !treptow && !schoeneweide">
+<div *ngIf="!gruenbergAfter && !treptow && !schoeneweide && !data.cancelled">
     <div class="animate-pulse flex space-x-4">
         <div class="flex-1 space-y-6 py-1">
           <div *ngIf="!treptow" class="h-4 bg-gray-200 rounded"></div>
@@ -13,12 +13,12 @@
 </div>
 
 
-<div *ngIf="!data.cancelled && treptow || schoeneweide">
+<div *ngIf="!data.cancelled && treptow || schoeneweide && !data.cancelled">
     <p *ngIf="treptow">Work <span class="dbSans">ETA</span>: <span class="text-lg">{{treptowArrival | date: "HH:mm"}}</span></p>
     <p *ngIf="schoeneweide" [ngClass]="{'mt-2': treptow}">HWR <span class="dbSans">ETA</span>: <span class="text-lg">{{this.getArrivalTime(this.data.actual, 50) | date: "HH:mm"}}</span> <span class="dbSans text-xs"> via Schöneweide</span></p>
     <hr>
 </div>
-<span *ngIf="!data.cancelled && treptow || schoeneweide" class="mt-2">Status: <span class="relative inline-flex rounded-full p-2 align-text-bottom" [ngClass]="data.status"></span></span>
+<span *ngIf="!data.cancelled && treptow || schoeneweide && !data.cancelled" class="mt-2">Status: <span class="relative inline-flex rounded-full p-2 align-text-bottom" [ngClass]="data.status"></span></span>
 
 <div *ngIf="gruenbergAfter && !treptow && !schoeneweide || data.cancelled" class="text-center">
     <p>Keine Relevanten ETA Informationen vorhanden</p>
