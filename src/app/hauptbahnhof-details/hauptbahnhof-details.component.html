@@ -1,11 +1,10 @@
 <p mat-dialog-title class="text-xl dbSans">Halte vom <span class="dbBlackItalic">{{data.name}}</span></p>
 <span *ngIf="data.cancelled" class="red-delay dbSans">Fahrt fällt aus</span>
-<div class="dbBoldItalic grid grid-cols-6 grid-flow-col">
+<div class="dbBoldItalic grid grid-cols-6 grid-flow-col" style="box-shadow: 0 6px 8px -8px #282D37;">
     <span class="col-span-3">Station</span>
     <span>Gleis</span>
     <span>Abfahrt</span>
 </div>
-<hr>
 <mat-dialog-content>
 <div *ngIf="hbfDetails.length == 0">
     <div class="animate-pulse grid grid-cols-6 grid-flow-col space-x-4">
