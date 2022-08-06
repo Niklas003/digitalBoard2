@@ -29,7 +29,9 @@ export class HauptbahnhofDetailsComponent implements OnInit {
          for(const d of (data.stopovers as any)){
           this.hbfDetails.push({
           depDelay: d.departureDelay/60,
-          planDep: d.plannedDeparture,  
+          arrDelay: d.arrivalDelay/60,
+          planDep: d.plannedDeparture,
+          planArr: d.plannedArrival,  
           platformArr: d.arrivalPlatform,
           platformDep: d.departurePlatform, 
           station: d.stop.name,
