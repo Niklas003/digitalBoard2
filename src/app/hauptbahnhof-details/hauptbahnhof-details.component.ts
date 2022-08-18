@@ -1,6 +1,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import {MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { HaupbahnhofDetailServiceService } from '../Services/hauptbahnhofDetailService/haupbahnhof-detail.service';
+import iceData from '../../assets/staticData/ICEnumbers.json';
 
 @Component({
   selector: 'app-hauptbahnhof-details',
@@ -13,19 +14,20 @@ export class HauptbahnhofDetailsComponent implements OnInit {
 
   hbfDetails:any = [];
   herkunft:any;
+  iceData:any = iceData;
+  iceType:any;
+  imgUrl:any;
 
   ngOnInit(): void {
     this.getDetails();
+    this.getICEType(this.data.product, this.data.line);
+    
   }
 
    getDetails(){
      this.hbfApi.getHbfDetails(this.data.id).subscribe(
        data => {
          this.hbfDetails = [];
-         this.hbfDetails.push({
-           name: data.line.name,
-           cancelled: data.cancelled
-         });
          for(const d of (data.stopovers as any)){
           this.hbfDetails.push({
           depDelay: d.departureDelay/60,
@@ -39,6 +41,17 @@ export class HauptbahnhofDetailsComponent implements OnInit {
           });
          }
         });
+    }
+
+    getICEType(product:any, line:any){  
+      if(product == 'ICE'){
+        for(const ice of (iceData as any)){
+          if(line == ice.Zugnummer){
+            this.iceType = ice.Tfz
+            this.imgUrl = '/assets/pictures/'+this.iceType.slice(0, 5).split(' ').join('-')+'.png'
+          }
+        }
+      }
     }
   
 }

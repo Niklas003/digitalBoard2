@@ -57,7 +57,9 @@ export class HauptbahnhofComponent implements OnInit {
       {
         width: '600px',
         data: {id: id,
-                name: this.name
+                name: this.name,
+                line: line,
+                product: product
               },
       });
   }

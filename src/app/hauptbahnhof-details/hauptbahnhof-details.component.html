@@ -51,6 +51,7 @@
         <small *ngIf="i.stopCancelled" class="red-delay text-sm">Halt entfällt</small>
     </div>
     <hr>
+    <small *ngIf="iceType" class="dbSans mt-4">Es fährt ein {{iceType}}</small><img src="{{imgUrl}}" height=".2rem" width="100%" alt="">
 </div>
     <app-detect-status></app-detect-status>
 </mat-dialog-content>
