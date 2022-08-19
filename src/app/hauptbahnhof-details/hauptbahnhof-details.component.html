@@ -35,6 +35,11 @@
             <div class="h-4 bg-gray-200 rounded"></div>
         </div>
     </div>
+    <div *ngIf="data.product == 'ICE' && !isLoading" class="animate-pulse grid grid-cols-6 grid-flow-col space-x-4">
+        <div class="py-1 mt-2 col-span-full">
+            <div class="h-16 bg-gray-200 rounded"></div>
+        </div>
+    </div>
 </div>
     
 <div *ngIf="hbfDetails.length !==0">
@@ -51,7 +56,12 @@
         <small *ngIf="i.stopCancelled" class="red-delay text-sm">Halt entfällt</small>
     </div>
     <hr>
-    <small *ngIf="iceType" class="dbSans mt-4">Es fährt ein {{iceType}}</small><img src="{{imgUrl}}" height=".2rem" width="100%" alt="">
+    <small *ngIf="iceType" class="dbSans mt-4">Es fährt ein {{iceType}}</small><img (load)="loading()" src="{{imgUrl}}" height=".2rem" width="100%" alt="">
+    <div *ngIf="(data.product == 'ICE' && !isLoading) || hbfDetails.length == 0" class="animate-pulse grid grid-cols-6 grid-flow-col space-x-4">
+        <div class="py-1 mt-2 col-span-full">
+            <div class="h-16 bg-gray-200 rounded"></div>
+        </div>
+    </div>
 </div>
     <app-detect-status></app-detect-status>
 </mat-dialog-content>

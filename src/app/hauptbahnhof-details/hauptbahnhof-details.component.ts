@@ -17,6 +17,7 @@ export class HauptbahnhofDetailsComponent implements OnInit {
   iceData:any = iceData;
   iceType:any;
   imgUrl:any;
+  isLoading:boolean;
 
   ngOnInit(): void {
     this.getDetails();
@@ -52,6 +53,10 @@ export class HauptbahnhofDetailsComponent implements OnInit {
           }
         }
       }
+    }
+
+    loading(){
+      this.isLoading = true;
     }
   
 }
