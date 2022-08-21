@@ -19,6 +19,7 @@ import { SBahnDialogComponent } from './sbahn-dialog/sbahn-dialog.component';
 import { HauptbahnhofDetailsComponent } from './hauptbahnhof-details/hauptbahnhof-details.component';
 import { ManualAirportRequestComponent } from './manual-airport-request/manual-airport-request.component';
 import { AppRoutingModule } from './app-routing.module';
+import { BlackScreenComponent } from './black-screen/black-screen.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { AppRoutingModule } from './app-routing.module';
     SBahnDialogComponent,
     HauptbahnhofDetailsComponent,
     ManualAirportRequestComponent,
+    BlackScreenComponent,
   ],
   imports: [
     BrowserModule,

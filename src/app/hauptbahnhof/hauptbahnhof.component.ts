@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { StationService } from '../Services/stationService/station.service';
 import { MatDialog } from '@angular/material/dialog';
 import { HauptbahnhofDetailsComponent } from '../hauptbahnhof-details/hauptbahnhof-details.component';
+import { Subscription } from 'rxjs';
 
 
 @Component({
@@ -13,16 +14,27 @@ export class HauptbahnhofComponent implements OnInit {
 
   stationData: any = [];
   name:any;
+  hauptbahnhofDataSubscription:Subscription;
+  intervall:any;
 
   constructor(private api: StationService, public dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.getStationData();
-    setInterval(()=> { this.getStationData() }, 30 * 1000);
+    this.updateData();
+  }
+
+  ngOnDestroy(): void{
+    clearInterval(this.intervall);
+    this.hauptbahnhofDataSubscription.unsubscribe();
+  }
+
+  updateData(){
+    this.intervall = setInterval(()=> { this.getStationData() }, 30 * 1000);
   }
 
  getStationData() {
-  this.api.getHbf()
+  this.hauptbahnhofDataSubscription = this.api.getHbf()
     .subscribe(data => {
       this.stationData = [];
       for (const d of (data as any)) {

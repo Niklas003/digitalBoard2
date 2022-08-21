@@ -1,12 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-datestamp',
-  templateUrl: './datestamp.component.html',
-  styleUrls: ['./datestamp.component.scss']
+  selector: 'app-black-screen',
+  templateUrl: './black-screen.component.html',
+  styleUrls: ['./black-screen.component.scss']
 })
-export class DatestampComponent implements OnInit {
-
+export class BlackScreenComponent implements OnInit {
   constructor() { 
     this.date = new Date();
   }
@@ -21,4 +20,5 @@ export class DatestampComponent implements OnInit {
     this.date = new Date();
     this.day = this.date.toLocaleDateString('de-DE', {weekday: 'short'});
   }
+
 }

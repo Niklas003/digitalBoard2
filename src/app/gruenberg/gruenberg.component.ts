@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { StationService } from '../Services/stationService/station.service';
 import { MatDialog } from '@angular/material/dialog';
 import { SBahnDialogComponent } from '../sbahn-dialog/sbahn-dialog.component';
+import { Subscription } from 'rxjs';
 
 export interface TrainData {
   line: string;
@@ -24,16 +25,27 @@ export class GruenbergComponent implements OnInit {
   timeDiff:any;
   plannedTime:any;
   id:any
+  subs:Subscription;
+  intervall:any;
 
   constructor(private api: StationService, public dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.getStationGruenberg();
-    setInterval(()=> { this.getStationGruenberg() }, 15 * 1000);
+    this.updateData();
+  }
+
+  ngOnDestroy():void{
+    clearInterval(this.intervall);
+    this.subs.unsubscribe();
+  }
+
+  updateData(){
+    this.intervall =  setInterval(()=> { this.getStationGruenberg() }, 15 * 1000);
   }
 
   getStationGruenberg() {
-   this.sub = this.api.getGruenberg()
+   this.subs = this.api.getGruenberg()
       .subscribe((data) => {
         this.stationGruenberg = [];
         for (const d of (data as any)) {

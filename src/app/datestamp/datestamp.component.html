@@ -1,1 +1,4 @@
-<span class="text-xl inline-block"><app-detect-status></app-detect-status> <span class="px-1"></span> {{day}} <span class="px-1"></span> {{date | date: 'dd.MM.yyyy':'de'}} <span class="px-1"></span>{{date | date: 'HH'}}<span class="depart-now relative bottom-0.5">:</span>{{date | date: 'mm'}}</span>
+<span class="text-xl inline-block"><app-detect-status></app-detect-status> 
+    <span class="px-1"></span> {{day}} <span class="px-1"></span> {{date | date: 'dd.MM.yyyy':'de'}} <span class="px-1"></span>{{date | date: 'HH'}}<span class="depart-now relative bottom-0.5">:</span>{{date | date: 'mm'}} 
+    <span class="px-1"></span><a class="float-right relative bottom-0.5" routerLink="/blackScreen"><img width="70%" src="assets/pictures/power.svg" alt="poweroff"></a>
+</span>

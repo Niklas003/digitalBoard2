@@ -1,4 +1,4 @@
-<div class="container px-8 text-white">
+<div class="container px-8 text-white" *ngIf="router.url !== '/blackScreen'">
 
   <mat-tab-group mat-align-tabs="center" color="warn" class="text-white dbSans">
     <mat-tab label="Grünbergallee"> <app-gruenberg></app-gruenberg> </mat-tab>
@@ -7,3 +7,4 @@
   </mat-tab-group>
 
 </div>
+<router-outlet></router-outlet>
