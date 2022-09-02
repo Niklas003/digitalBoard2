@@ -20,6 +20,7 @@ import { HauptbahnhofDetailsComponent } from './hauptbahnhof-details/hauptbahnho
 import { ManualAirportRequestComponent } from './manual-airport-request/manual-airport-request.component';
 import { AppRoutingModule } from './app-routing.module';
 import { BlackScreenComponent } from './black-screen/black-screen.component';
+import { StationLoadingComponent } from './station-loading/station-loading.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { BlackScreenComponent } from './black-screen/black-screen.component';
     HauptbahnhofDetailsComponent,
     ManualAirportRequestComponent,
     BlackScreenComponent,
+    StationLoadingComponent,
   ],
   imports: [
     BrowserModule,
