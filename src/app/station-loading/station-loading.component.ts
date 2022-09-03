@@ -12,4 +12,6 @@ export class StationLoadingComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  loadingContainersNumber = new Array(5);
+
 }

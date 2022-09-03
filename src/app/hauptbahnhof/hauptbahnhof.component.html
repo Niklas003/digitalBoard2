@@ -1,6 +1,5 @@
 
-
-<mat-spinner *ngIf="stationData.length === 0" color="warn" class="mx-auto my-20"></mat-spinner>
+<app-station-loading *ngIf="stationData.length === 0"></app-station-loading>
 <div class="mt-4 mx-auto" *ngIf="stationData.length > 0">
     <span class="text-3xl dbBold mr-10 text-center">Abfahrt</span> <span class="dbItalic text-2xl mr-5">Berlin Hauptbahnhof</span> <app-datestamp class="absolute right-0"></app-datestamp>
 </div>
