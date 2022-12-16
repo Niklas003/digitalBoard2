@@ -1,7 +1,7 @@
 
 <app-station-loading *ngIf="stationData.length === 0"></app-station-loading>
-<div class="mt-4 mx-auto" *ngIf="stationData.length > 0">
-    <span class="text-3xl dbBold mr-10 text-center">Abfahrt</span> <span class="dbItalic text-2xl mr-5">Berlin Hauptbahnhof</span> <app-datestamp class="absolute right-0"></app-datestamp>
+<div class="flex flex-col md:flex-row mt-4" *ngIf="stationData.length > 0">
+    <span class="text-3xl dbBold lg:w-1/5 text-left">Abfahrt</span> <span class="dbItalic text-2xl lg:w-1/5 text-left">Berlin Hauptbahnhof</span> <app-datestamp class="lg:w-3/5 lg:text-right md:text-left"></app-datestamp>
 </div>
 
     <div *ngFor="let i of stationData; trackBy: identifyIfEqual" class="my-4 bg-[#282D37] min-w-full rounded-md rounded-l-lg min-h-20 shadow-lg">
