@@ -3,26 +3,26 @@
     <span class="text-3xl dbBold mr-10 text-center">Abfahrt</span> <span class="dbItalic text-2xl mr-5">Grünbergallee</span> <app-datestamp class="absolute right-0"></app-datestamp>
 </div>
 
-    <div *ngFor="let i of stationGruenberg; trackBy: identifyIfEqual" class="my-4 bg-[#282D37] min-w-full rounded-md rounded-l-lg h-20 shadow-lg">
-        <div (click)="openDialog(i.line, i.actual, i.direction, i.cancelled, i.id, i.status)" class="grid grid-cols-10 items-center grid-flow-col lg:grid-flow-row">
-            <div class="s-bahn w-20 h-20 rounded-l-md text-center z-10">
+    <div *ngFor="let i of stationGruenberg; trackBy: identifyIfEqual" class="my-4 bg-[#282D37] min-w-full rounded-md rounded-l-lg min-h-20 shadow-lg">
+        <div (click)="openDialog(i.line, i.actual, i.direction, i.cancelled, i.id, i.status)" class="flex flex-col md:flex-row text-center space-y-2">
+            <div class="s-bahn lg:w-1/12 md:w-full z-10 rounded-md h-20">
                 <span class="dbBold text-3xl relative top-3">{{i.product}}</span>
                     <br>
                 <span class="dbSans text-base relative top-3">{{i.line}}</span>
             </div>
 
-            <div class="col-span-3 box-border whitespace-nowrap overflow-hidden">
+            <div class="lg:w-4/12 lg:relative lg:top-4 lg:left-2 md:w-full overflow-hidden whitespace-nowrap">
                 <div [ngClass]="{'hmove': direction.offsetWidth>280}">
                     <span #direction class="dbBold text-2xl text-white">{{i.direction}}</span>
                 </div>
             </div>
 
-            <div class="col-span-1 relative left-4">
+            <div class="lg:w-2/12 lg:relative lg:top-4 md:w-full lg:text-left lg:left-4">
                 <span [ngClass]="{'line-through decoration-[#EC0016]': i.cancelled}" class="text-white text-3xl dbBold">{{i.planned | date: 'HH:mm'}}</span>
                 <span *ngIf="i.delay > 0" class="relative bottom-4 left-1 text-[#00AA11] dbBold" [class.red-delay]="i.delay >= 5">+{{i.delay}}</span>
             </div>
 
-            <div class="mx-auto">
+            <div class="mx-auto lg:w-1/12 lg:relative lg:top-6 md:w-full">
                 <span class="flex h-3 w-3">
                     <span [ngClass]="{'s-bahn': getDiff(i.actual)>450000 && !i.cancelled, 'gelb': getDiff(i.actual)<=300000 && getDiff(i.actual) >= 250000 && !i.cancelled}" 
                         *ngIf="getDiff(i.actual)<=460000 && getDiff(i.actual)>450000 || getDiff(i.actual)>=250000 && getDiff(i.actual)<280000" 
@@ -33,17 +33,17 @@
                   </span>
             </div>
 
-            <div *ngIf="i.platform" class="text-center relative right-2">
+            <div *ngIf="i.platform" class="lg:w-1/12 md:w-full text-center relative lg:right-2">
                 <span class="text-white text-3xl dbBold relative top-2">{{i.platform}}</span><br>
                 <span class=" text-[#AFB4BB] dbBold">Gleis</span>
             </div>
 
-            <div class="col-span-3 box-border whitespace-nowrap overflow-hidden relative right-4">
+            <div class="lg:w-3/12 lg:relative lg:top-5 md:w-full">
                 <div>
                     <marquee *ngIf="i.info" class="dbSans text-base text-[#EC0016]" direction="left">+++ {{i.info.text}} +++</marquee>
                 </div>
                 <div *ngIf="!i.info">
-                    <span class="dbSans text-base text-white relative left-6">Keine Meldungen vorhanden</span>
+                    <span class="dbSans text-base text-white">Keine Meldungen vorhanden</span>
                 </div>
             
             </div>

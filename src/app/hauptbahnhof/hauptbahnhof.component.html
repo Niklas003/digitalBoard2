@@ -5,7 +5,7 @@
 </div>
 
     <div *ngFor="let i of stationData; trackBy: identifyIfEqual" class="my-4 bg-[#282D37] min-w-full rounded-md rounded-l-lg min-h-20 shadow-lg">
-        <div (click)="openDetails(i.id, i.product, i.line)" class="flex flex-col md:flex-row text-center space-y-2">
+        <div (click)="openDetails(i.id, i.product, i.line)" class="flex flex-col md:flex-row text-center space-y-2 md:space-y-4">
             <div class="lg:w-1/12 md:w-full z-10 rounded-md h-20" [ngClass]="{'ice': i.product==='ICE', 'ic':i.product==='IC'|| i.product==='EC', 'regio':i.product==='RE'|| i.product==='RB' || i.product==='FEX', 'flix':i.product==='FLX'}">
                 <span class="dbBold text-3xl relative top-3">{{i.product}}</span>
                     <br>
@@ -24,7 +24,7 @@
                 <span *ngIf="i.delay >= 5" class="bg-[#282D37] text-white border-2 border-white dbBold rounded-sm px-px relative left-2">{{i.actual | date: 'HH:mm'}}</span>
             </div>
 
-            <div *ngIf="i.platform" class="lg:w-1/12 md:w-full text-center relative right-2">
+            <div *ngIf="i.platform" class="lg:w-1/12 md:w-full text-center relative lg:right-2">
                 <span class="text-white text-3xl dbBold">{{i.platform}}</span><br>
                 <span class=" text-[#AFB4BB] dbBold">Gleis</span>
             </div>
