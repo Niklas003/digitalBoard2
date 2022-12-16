@@ -1,7 +1,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import {MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { HaupbahnhofDetailServiceService } from '../Services/hauptbahnhofDetailService/haupbahnhof-detail.service';
-import iceData from '../../assets/staticData/ICEnumbers.json';
+import iceData from '../../assets/staticData/ICEnumbers2023.json';
 
 @Component({
   selector: 'app-hauptbahnhof-details',
