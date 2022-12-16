@@ -1,11 +1,11 @@
 
 <app-station-loading *ngIf="stationData.length === 0"></app-station-loading>
 <div class="flex flex-col md:flex-row mt-4" *ngIf="stationData.length > 0">
-    <span class="text-3xl dbBold lg:w-1/5 text-left">Abfahrt</span> <span class="dbItalic text-2xl lg:w-1/5 text-left">Berlin Hauptbahnhof</span> <app-datestamp class="lg:w-3/5 lg:text-right md:text-left"></app-datestamp>
+    <span class="text-3xl dbBold lg:w-1/5 text-left">Abfahrt</span> <span class="dbItalic text-2xl lg:w-2/5 text-left">Berlin Hauptbahnhof</span> <app-datestamp class="lg:w-2/5 lg:text-right md:text-left"></app-datestamp>
 </div>
 
     <div *ngFor="let i of stationData; trackBy: identifyIfEqual" class="my-4 bg-[#282D37] min-w-full rounded-md rounded-l-lg min-h-20 shadow-lg">
-        <div (click)="openDetails(i.id, i.product, i.line)" class="flex flex-col md:flex-row text-center space-y-2 md:space-y-4">
+        <div (click)="openDetails(i.id, i.product, i.line)" class="flex flex-col md:flex-row text-center space-y-2">
             <div class="lg:w-1/12 md:w-full z-10 rounded-md h-20" [ngClass]="{'ice': i.product==='ICE', 'ic':i.product==='IC'|| i.product==='EC', 'regio':i.product==='RE'|| i.product==='RB' || i.product==='FEX', 'flix':i.product==='FLX'}">
                 <span class="dbBold text-3xl relative top-3">{{i.product}}</span>
                     <br>
