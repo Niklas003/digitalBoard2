@@ -19,11 +19,14 @@ export class HauptbahnhofDetailsComponent implements OnInit {
   imgUrl:any;
   isLoading:boolean;
   notice:string;
+  mobile:boolean = false;
 
   ngOnInit(): void {
     this.getDetails();
     this.getICEType(this.data.product, this.data.line);
-    
+    if (window.innerWidth <= 768) { // 768px portrait
+      this.mobile = true;
+    }
   }
 
    getDetails(){
@@ -49,8 +52,8 @@ export class HauptbahnhofDetailsComponent implements OnInit {
       if(product == 'ICE'){
         for(const ice of (iceData as any)){
           if(line == ice.Zugnummer){
-            this.iceType = ice.Tfz
-            this.notice = ice.Hinweis
+            this.iceType = ice.Tfz;
+            this.notice = ice.Hinweis;
             this.imgUrl = '/assets/pictures/'+this.iceType.slice(0, 5).split(' ').join('-')+'.png'
           }
         }
