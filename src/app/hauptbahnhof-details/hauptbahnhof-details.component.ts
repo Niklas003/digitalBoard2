@@ -18,6 +18,7 @@ export class HauptbahnhofDetailsComponent implements OnInit {
   iceType:any;
   imgUrl:any;
   isLoading:boolean;
+  notice:string;
 
   ngOnInit(): void {
     this.getDetails();
@@ -49,6 +50,7 @@ export class HauptbahnhofDetailsComponent implements OnInit {
         for(const ice of (iceData as any)){
           if(line == ice.Zugnummer){
             this.iceType = ice.Tfz
+            this.notice = ice.Hinweis
             this.imgUrl = '/assets/pictures/'+this.iceType.slice(0, 5).split(' ').join('-')+'.png'
           }
         }

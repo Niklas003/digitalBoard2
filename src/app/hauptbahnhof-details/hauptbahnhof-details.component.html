@@ -57,6 +57,7 @@
     </div>
     <hr>
     <small *ngIf="iceType" class="dbSans mt-4">Es fährt ein {{iceType}}</small><img (load)="loading()" src="{{imgUrl}}" height=".2rem" width="100%" alt="">
+    <small *ngIf="notice.length > 0" class="dbItalic">Dieser {{notice}}</small>
     <div *ngIf="(data.product == 'ICE' && !isLoading) || hbfDetails.length == 0" class="animate-pulse grid grid-cols-6 grid-flow-col space-x-4">
         <div class="py-1 mt-2 col-span-full">
             <div class="h-16 bg-gray-200 rounded"></div>

@@ -11,8 +11,8 @@
                 <span class="dbSans text-base relative top-3">{{i.line}}</span>
             </div>
 
-            <div class="lg:w-4/12 lg:relative lg:top-4 lg:left-2 md:w-full overflow-hidden whitespace-nowrap">
-                <div [ngClass]="{'hmove': direction.offsetWidth>280}">
+            <div #directionParent class="lg:w-4/12 lg:relative lg:top-4 lg:left-2 md:w-full overflow-hidden whitespace-nowrap">
+                <div [ngClass]="{'hmove': direction.offsetWidth>directionParent.offsetWidth}">
                     <span #direction class="dbBold text-2xl text-white">{{i.direction}}</span>
                 </div>
             </div>
