@@ -6,7 +6,7 @@
 
     <div *ngFor="let i of stationData; trackBy: identifyIfEqual" class="my-4 bg-[#282D37] min-w-full rounded-md rounded-l-lg min-h-20 shadow-lg">
         <div (click)="openDetails(i.id, i.product, i.line)" class="flex flex-col md:flex-row text-center space-y-2">
-            <div class="lg:w-1/12 md:w-full z-10 rounded-md h-20" [ngClass]="{'ice': i.product==='ICE', 'ic':i.product==='IC'|| i.product==='EC', 'regio':i.product==='RE'|| i.product==='RB' || i.product==='FEX', 'flix':i.product==='FLX'}">
+            <div class="lg:w-1/12 md:w-full z-10 rounded-md h-20 default" [ngClass]="{'ice': i.product==='ICE', 'ic':i.product==='IC'|| i.product==='EC', 'regio':i.product==='RE'|| i.product==='RB' || i.product==='FEX', 'flix':i.product==='FLX'}">
                 <span class="dbBold text-3xl relative top-3">{{i.product}}</span>
                     <br>
                 <span class="dbSans text-base relative top-3">{{i.line}}</span>
@@ -26,7 +26,7 @@
 
             <div *ngIf="i.platform" class="lg:w-1/12 md:w-full text-center relative lg:right-2">
                 <span class="text-white text-3xl dbBold">{{i.platform}}</span><br>
-                <span class=" text-[#AFB4BB] dbBold">Gleis</span>
+                <span class=" decent-text dbBold">Gleis</span>
             </div>
 
             <div class="lg:w-3/12 lg:relative lg:top-5 md:w-full"> <!--Wegen Infos mal noch auf zugfinder.net sehen wie die das gemacht haben-->
@@ -34,7 +34,7 @@
                     <marquee *ngIf="i.info" class="dbSans text-base text-[#EC0016]" destination="left">+++ {{i.info.text}} +++</marquee>
                 </div>
                 <div *ngIf="!i.info">
-                    <span class="dbSans text-base text-white">Keine Meldungen vorhanden</span>
+                    <span class="dbSans text-base decent-text">Keine Meldungen vorhanden</span>
                 </div>
             </div>
     
