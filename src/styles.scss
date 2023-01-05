@@ -40,31 +40,31 @@ $digitalBoard-theme: mat.define-light-theme((
 
 @font-face {
     font-family: dbSans;
-    src: url(assets/fonts/DB_Sans_Regular.otf) format("opentype");
+    src: url(assets/fonts/Lato-Regular.ttf) format("opentype");
   }
   @font-face {
     font-family: dbItalic;
-    src: url(assets/fonts/DB_Sans_Regular_Italic.otf) format("opentype");
+    src: url(assets/fonts/Lato-Italic.ttf) format("opentype");
   }
 
 @font-face {
     font-family: dbBold;
-    src: url(assets/fonts/DB_Sans_Bold.otf) format("opentype");
+    src: url(assets/fonts/Lato-Bold.ttf) format("opentype");
   }
 
   @font-face {
     font-family: dbBoldItalic;
-    src: url(assets/fonts/DB_Sans_Bold_Italic.otf) format("opentype");
+    src: url(assets/fonts/Lato-BoldItalic.ttf) format("opentype");
   }
 
   @font-face {
     font-family: dbBlack;
-    src: url(assets/fonts/DB_Sans_Black.otf) format("opentype");
+    src: url(assets/fonts/Lato-Black.ttf) format("opentype");
   }
 
   @font-face {
     font-family: dbBlackItalic;
-    src: url(assets/fonts/DB_Sans_Black_Italic.otf) format("opentype");
+    src: url(assets/fonts/Lato-BlackItalic.ttf) format("opentype");
   }
 
   .dbSans{
@@ -76,7 +76,7 @@ $digitalBoard-theme: mat.define-light-theme((
 }
 
 .dbBold{
-    font-family: dbBold;
+    font-family: dbBlack;
 }
 
 .dbBoldItalic{
