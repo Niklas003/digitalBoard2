@@ -11,15 +11,11 @@ import {MatRippleModule} from '@angular/material/core';
 import { HauptbahnhofComponent } from './hauptbahnhof/hauptbahnhof.component';
 import { GruenbergComponent } from './gruenberg/gruenberg.component';
 import { DatestampComponent } from './datestamp/datestamp.component';
-import { AirportarrivalComponent } from './airportarrival/airportarrival.component';
-import { AirportdepartureComponent } from './airportdeparture/airportdeparture.component';
 import { DetectStatusComponent } from './detect-status/detect-status.component';
-import { AirportSelectComponent } from './airport-select/airport-select.component';
 import { SBahnDialogComponent } from './sbahn-dialog/sbahn-dialog.component';
 import { HauptbahnhofDetailsComponent } from './hauptbahnhof-details/hauptbahnhof-details.component';
 import { ManualAirportRequestComponent } from './manual-airport-request/manual-airport-request.component';
 import { AppRoutingModule } from './app-routing.module';
-import { BlackScreenComponent } from './black-screen/black-screen.component';
 import { StationLoadingComponent } from './station-loading/station-loading.component';
 
 @NgModule({
@@ -28,14 +24,10 @@ import { StationLoadingComponent } from './station-loading/station-loading.compo
     HauptbahnhofComponent,
     GruenbergComponent,
     DatestampComponent,
-    AirportarrivalComponent,
-    AirportdepartureComponent,
     DetectStatusComponent,
-    AirportSelectComponent,
     SBahnDialogComponent,
     HauptbahnhofDetailsComponent,
     ManualAirportRequestComponent,
-    BlackScreenComponent,
     StationLoadingComponent,
   ],
   imports: [
