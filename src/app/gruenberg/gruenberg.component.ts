@@ -48,7 +48,7 @@ export class GruenbergComponent implements OnInit {
    this.subs = this.api.getGruenberg()
       .subscribe((data) => {
         this.stationGruenberg = [];
-        for (const d of (data as any)) {
+        for (const d of (data.departures as any)) {
         if(d.line.productName === 'S'){
           this.stationGruenberg.push({
   

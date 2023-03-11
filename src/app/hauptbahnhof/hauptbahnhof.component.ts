@@ -37,7 +37,7 @@ export class HauptbahnhofComponent implements OnInit {
   this.hauptbahnhofDataSubscription = this.api.getHbf()
     .subscribe(data => {
       this.stationData = [];
-      for (const d of (data as any)) {
+      for (const d of (data.departures as any)) {
       if(d.line.productName !== 'Bus' && d.line.productName !== 'U' && d.line.productName !== 'S' && d.line.productName !== 'STR'){
         this.stationData.push({
 

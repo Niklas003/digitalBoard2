@@ -2,9 +2,9 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-const hauptbahnhofUrl = 'https://v5.db.transport.rest/stops/8011160/departures?duration=120&linesOfStops=false&remarks=true&language=de';
+const hauptbahnhofUrl = 'https://v6.db.transport.rest/stops/8011160/departures?duration=120&linesOfStops=false&remarks=true&language=de';
 
-const gruenbergUrl = 'https://v5.db.transport.rest/stops/8089016/departures?duration=30&linesOfStops=false&remarks=true&language=de';
+const gruenbergUrl = 'https://v6.db.transport.rest/stops/8089016/departures?duration=30&linesOfStops=false&remarks=true&language=de';
 
 
 @Injectable({

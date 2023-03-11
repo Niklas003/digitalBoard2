@@ -20,6 +20,7 @@ export class HauptbahnhofDetailsComponent implements OnInit {
   isLoading:boolean;
   notice:string;
   mobile:boolean = false;
+  iceFound:boolean = false;
 
   ngOnInit(): void {
     this.getDetails();
@@ -33,7 +34,7 @@ export class HauptbahnhofDetailsComponent implements OnInit {
      this.hbfApi.getHbfDetails(this.data.id).subscribe(
        data => {
          this.hbfDetails = [];
-         for(const d of (data.stopovers as any)){
+         for(const d of (data.trip.stopovers as any)){
           this.hbfDetails.push({
           depDelay: d.departureDelay/60,
           arrDelay: d.arrivalDelay/60,
@@ -55,6 +56,7 @@ export class HauptbahnhofDetailsComponent implements OnInit {
             this.iceType = ice.Tfz;
             this.notice = ice.Hinweis;
             this.imgUrl = '/assets/pictures/'+this.iceType.slice(0, 5).split(' ').join('-')+'.png'
+            this.iceFound = true;
           }
         }
       }
