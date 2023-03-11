@@ -16,6 +16,7 @@ export class HauptbahnhofComponent implements OnInit {
   name:any;
   hauptbahnhofDataSubscription:Subscription;
   intervall:any;
+  timeUntilRequested:any;
 
   constructor(private api: StationService, public dialog: MatDialog) { }
 
@@ -31,6 +32,12 @@ export class HauptbahnhofComponent implements OnInit {
 
   updateData(){
     this.intervall = setInterval(()=> { this.getStationData() }, 30 * 1000);
+  }
+
+  timeThatisRequested(){
+    let timeNow = new Date();
+    timeNow.setHours(timeNow.getHours() + 1);
+    return timeNow;
   }
 
  getStationData() {
