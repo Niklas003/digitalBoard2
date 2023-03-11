@@ -17,6 +17,8 @@ export class HauptbahnhofDetailsComponent implements OnInit {
   iceData:any = iceData;
   iceType:any;
   imgUrl:any;
+  operator:string;
+  brandImg:any;
   isLoading:boolean;
   notice:string;
   mobile:boolean = false;
@@ -43,12 +45,12 @@ export class HauptbahnhofDetailsComponent implements OnInit {
           platformArr: d.arrivalPlatform,
           platformDep: d.departurePlatform, 
           station: d.stop.name,
-          stopCancelled: d.cancelled
+          stopCancelled: d.cancelled,
           });
          }
         });
     }
-
+    
     getICEType(product:any, line:any){  
       if(product == 'ICE'){
         for(const ice of (iceData as any)){

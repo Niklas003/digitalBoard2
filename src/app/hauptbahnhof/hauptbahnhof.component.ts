@@ -51,7 +51,8 @@ export class HauptbahnhofComponent implements OnInit {
           product: d.line.productName,
           info: d.remarks[0],
           cancelled: d.cancelled,
-          actual: d.when
+          actual: d.when,
+          operator: d.line.operator.name
 
         });
       }
@@ -63,7 +64,7 @@ export class HauptbahnhofComponent implements OnInit {
     return item.id;
   }
 
-  openDetails(id:any, product:any, line:any){
+  openDetails(id:any, product:any, line:any, operator:string){
     this.name = product + " "+ line
     this.dialog.open(HauptbahnhofDetailsComponent,
       {
@@ -71,7 +72,8 @@ export class HauptbahnhofComponent implements OnInit {
         data: {id: id,
                 name: this.name,
                 line: line,
-                product: product
+                product: product,
+                operator: operator
               },
       });
   }

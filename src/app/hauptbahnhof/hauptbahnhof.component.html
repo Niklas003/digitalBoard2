@@ -5,7 +5,7 @@
 </div>
 
     <div *ngFor="let i of stationData; trackBy: identifyIfEqual" class="my-4 bg-[#282D37] min-w-full rounded-md rounded-l-lg min-h-20 shadow-lg">
-        <div (click)="openDetails(i.id, i.product, i.line)" class="flex flex-col md:flex-row text-center space-y-2">
+        <div (click)="openDetails(i.id, i.product, i.line, i.operator)" class="flex flex-col md:flex-row text-center space-y-2">
             <div class="lg:w-1/12 md:w-full z-10 rounded-md h-20 default" [ngClass]="{'ice': i.product==='ICE', 'ic':i.product==='IC'|| i.product==='EC', 'regio':i.product==='RE'|| i.product==='RB' || i.product==='FEX', 'flix':i.product==='FLX', 's-bahn':i.product==='S'}">
                 <span class="dbBold text-3xl relative top-3">{{i.product}}</span>
                     <br>
@@ -29,7 +29,7 @@
                 <span class=" decent-text dbBold">Gleis</span>
             </div>
 
-            <div class="lg:w-3/12 lg:relative lg:top-5 md:w-full"> <!--Wegen Infos mal noch auf zugfinder.net sehen wie die das gemacht haben-->
+            <div class="lg:w-3/12 lg:relative lg:top-5 md:w-full">
                 <div>
                     <marquee *ngIf="i.info" class="dbSans text-base text-[#EC0016]" destination="left">+++ {{i.info.text}} +++</marquee>
                 </div>
