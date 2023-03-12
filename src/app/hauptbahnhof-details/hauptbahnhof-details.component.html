@@ -47,7 +47,7 @@
     <div *ngFor="let i of hbfDetails; index as ind" class="text-black dbSans grid grid-cols-6 grid-flow-col mb-4" [ngClass]="{'dbBlack': i.station==='Berlin Hbf' || i.station === 'Berlin Hbf (tief)'}">
         <div #stationParent [ngClass]="{'line-through decoration-[#EC0016]': i.stopCancelled}" class="col-span-3 text-ellipsis overflow-hidden">{{i.station}}</div>
         <div class="text-center"><span *ngIf="i.platformDep == null || i.platformArr != null ">{{i.platformArr}}</span><span *ngIf="i.platformArr == null">{{i.platformDep}}</span></div>
-        <div class="text-center">   <span>{{i.planDep | date: "HH:mm"}}</span>
+        <div class="text-left">   <span>{{i.planDep | date: "HH:mm"}}</span>
                 <span *ngIf="!i.planDep">{{i.planArr | date: "HH:mm"}}</span>
 
                 <span class="text-sm text-[#00AA11] dbBold" [class.red-delay]="i.depDelay >= 5" *ngIf="i.depDelay>0">+{{i.depDelay}}</span>
