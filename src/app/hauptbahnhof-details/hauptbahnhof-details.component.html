@@ -1,4 +1,5 @@
-<p class="m-4 text-xl dbSans">Halte vom <span class="dbBlackItalic">{{data.name}}</span></p>
+<div class="p-1">
+    <p class="m-4 text-xl dbSans">Halte vom <span class="dbBlackItalic">{{data.name}}</span></p>
 <span *ngIf="data.cancelled" class="red-delay dbSans">Fahrt fällt aus</span>
 <div class="dbBoldItalic grid grid-cols-6 grid-flow-col text-center" style="box-shadow: 0 6px 8px -8px #282D37;">
     <span class="col-span-3">Station</span>
@@ -43,7 +44,7 @@
 </div>
     
 <div *ngIf="hbfDetails.length !==0">
-    <div *ngFor="let i of hbfDetails; index as ind" class="text-black dbSans grid grid-cols-6 grid-flow-col mb-2" [ngClass]="{'dbBlack': i.station==='Berlin Hbf' || i.station === 'Berlin Hbf (tief)'}">
+    <div *ngFor="let i of hbfDetails; index as ind" class="text-black dbSans grid grid-cols-6 grid-flow-col mb-4" [ngClass]="{'dbBlack': i.station==='Berlin Hbf' || i.station === 'Berlin Hbf (tief)'}">
         <div #stationParent [ngClass]="{'line-through decoration-[#EC0016]': i.stopCancelled}" class="col-span-3 text-ellipsis overflow-hidden">{{i.station}}</div>
         <div class="text-center"><span *ngIf="i.platformDep == null || i.platformArr != null ">{{i.platformArr}}</span><span *ngIf="i.platformArr == null">{{i.platformDep}}</span></div>
         <div class="text-center">   <span>{{i.planDep | date: "HH:mm"}}</span>
@@ -71,3 +72,4 @@
 </div>
     <app-detect-status></app-detect-status>
 </mat-dialog-content>
+</div>
