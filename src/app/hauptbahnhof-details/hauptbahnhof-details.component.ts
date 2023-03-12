@@ -17,8 +17,6 @@ export class HauptbahnhofDetailsComponent implements OnInit {
   iceData:any = iceData;
   iceType:any;
   imgUrl:any;
-  operator:string;
-  brandImg:any;
   isLoading:boolean;
   notice:string;
   mobile:boolean = false;
