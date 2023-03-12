@@ -38,6 +38,10 @@ $digitalBoard-theme: mat.define-light-theme((
 @tailwind components;
 @tailwind utilities;
 
+.mat-mdc-tab .mdc-tab__text-label,.mat-mdc-tab-link .mdc-tab__text-label {
+  color: white;
+}
+
 @font-face {
     font-family: dbSans;
     src: url(assets/fonts/Lato-Regular.ttf) format("opentype");
