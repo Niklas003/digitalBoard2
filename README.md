@@ -1,8 +1,8 @@
 # DigitalBoard
 
-The intention of this project is to create a digital departure Board. The Board should show the departures of Berlin Hauptbahnhof, Berlin Grünbergallee *(S-Bahn Station)* and BER Airport. Further:  for Grunbergallee I've implemented a traffic light system to show whether a certain train can still be reached if you leave your apartment now.
+The intention of this project is to create a digital departure Board. The Board should show the departures of Berlin Hauptbahnhof, Berlin Grünbergallee *(S-Bahn Station)*. Further:  for Grunbergallee I've implemented a traffic light system to show whether a certain train can still be reached if you leave your apartment now.
 
-The Board also shows additional information, e.g. when a train/plane is delayed or if there is a reason why the train service is disrupted.
+The Board also shows additional information, e.g. when a train is delayed or if there is a reason why the train service is disrupted.
 
 This Project is ment to be used in private and not in a commercial manner.
 
