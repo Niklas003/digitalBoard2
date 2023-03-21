@@ -1,75 +1,86 @@
 <div class="p-1">
     <p class="m-4 text-xl dbSans">Halte vom <span class="dbBlackItalic">{{data.name}}</span></p>
-<span *ngIf="data.cancelled" class="red-delay dbSans">Fahrt fällt aus</span>
-<div class="dbBoldItalic grid grid-cols-6 grid-flow-col text-center" style="box-shadow: 0 6px 8px -8px #282D37;">
-    <span class="col-span-3">Station</span>
-    <span>Gleis</span>
-    <span>Abfahrt</span>
-</div>
-<mat-dialog-content>
-<div *ngIf="hbfDetails.length == 0">
-    <div class="animate-pulse grid grid-cols-6 grid-flow-col space-x-4">
-        <div class="space-y-6 py-1 mt-2 col-span-3">
-          <div class="h-4 bg-gray-200 rounded"></div>
-          <div class="h-4 bg-gray-200 rounded"></div>
-          <div class="h-4 bg-gray-200 rounded"></div>
-          <div class="h-4 bg-gray-200 rounded"></div>
-          <div class="h-4 bg-gray-200 rounded"></div>
-          <div class="h-4 bg-gray-200 rounded"></div>
+    <span *ngIf="data.cancelled" class="red-delay dbSans">Fahrt fällt aus</span>
+    <div class="dbBoldItalic grid grid-cols-6 grid-flow-col text-center" style="box-shadow: 0 6px 8px -8px #282D37;">
+        <span class="col-span-3">Station</span>
+        <span>Gleis</span>
+        <span>Abfahrt</span>
+    </div>
+    <mat-dialog-content>
+        <div *ngIf="hbfDetails.length == 0">
+            <div class="animate-pulse grid grid-cols-6 grid-flow-col space-x-4">
+                <div class="space-y-6 py-1 mt-2 col-span-3">
+                    <div class="h-4 bg-gray-200 rounded"></div>
+                    <div class="h-4 bg-gray-200 rounded"></div>
+                    <div class="h-4 bg-gray-200 rounded"></div>
+                    <div class="h-4 bg-gray-200 rounded"></div>
+                    <div class="h-4 bg-gray-200 rounded"></div>
+                    <div class="h-4 bg-gray-200 rounded"></div>
+                </div>
+
+                <div class="space-y-6 py-1 mt-2">
+                    <div class="h-4 bg-gray-200 rounded"></div>
+                    <div class="h-4 bg-gray-200 rounded"></div>
+                    <div class="h-4 bg-gray-200 rounded"></div>
+                    <div class="h-4 bg-gray-200 rounded"></div>
+                    <div class="h-4 bg-gray-200 rounded"></div>
+                    <div class="h-4 bg-gray-200 rounded"></div>
+                </div>
+
+                <div class="space-y-6 py-1 mt-2">
+                    <div class="h-4 bg-gray-200 rounded"></div>
+                    <div class="h-4 bg-gray-200 rounded"></div>
+                    <div class="h-4 bg-gray-200 rounded"></div>
+                    <div class="h-4 bg-gray-200 rounded"></div>
+                    <div class="h-4 bg-gray-200 rounded"></div>
+                    <div class="h-4 bg-gray-200 rounded"></div>
+                </div>
+            </div>
+            <div *ngIf="data.product == 'ICE' && !isLoading"
+                class="animate-pulse grid grid-cols-6 grid-flow-col space-x-4">
+                <div class="py-1 mt-2 col-span-full">
+                    <div class="h-16 bg-gray-200 rounded"></div>
+                </div>
+            </div>
         </div>
 
-        <div class="space-y-6 py-1 mt-2">
-            <div class="h-4 bg-gray-200 rounded"></div>
-            <div class="h-4 bg-gray-200 rounded"></div>
-            <div class="h-4 bg-gray-200 rounded"></div>
-            <div class="h-4 bg-gray-200 rounded"></div>
-            <div class="h-4 bg-gray-200 rounded"></div>
-            <div class="h-4 bg-gray-200 rounded"></div>
-        </div>
+        <div *ngIf="hbfDetails.length !==0">
+            <div *ngFor="let i of hbfDetails; index as ind"
+                class="text-black dbSans grid grid-cols-6 grid-flow-col mb-4"
+                [ngClass]="{'dbBlack': i.station==='Berlin Hbf' || i.station === 'Berlin Hbf (tief)'}">
+                <div #stationParent [ngClass]="{'line-through decoration-[#EC0016]': i.stopCancelled}"
+                    class="col-span-3 text-ellipsis overflow-hidden">{{i.station}}</div>
+                <div class="text-center"><span
+                        *ngIf="i.platformDep == null || i.platformArr != null ">{{i.platformArr}}</span><span
+                        *ngIf="i.platformArr == null">{{i.platformDep}}</span></div>
+                <div class="text-left"> <span>{{i.planDep | date: "HH:mm"}}</span>
+                    <span *ngIf="!i.planDep">{{i.planArr | date: "HH:mm"}}</span>
 
-        <div class="space-y-6 py-1 mt-2">
-            <div class="h-4 bg-gray-200 rounded"></div>
-            <div class="h-4 bg-gray-200 rounded"></div>
-            <div class="h-4 bg-gray-200 rounded"></div>
-            <div class="h-4 bg-gray-200 rounded"></div>
-            <div class="h-4 bg-gray-200 rounded"></div>
-            <div class="h-4 bg-gray-200 rounded"></div>
-        </div>
-    </div>
-    <div *ngIf="data.product == 'ICE' && !isLoading" class="animate-pulse grid grid-cols-6 grid-flow-col space-x-4">
-        <div class="py-1 mt-2 col-span-full">
-            <div class="h-16 bg-gray-200 rounded"></div>
-        </div>
-    </div>
-</div>
-    
-<div *ngIf="hbfDetails.length !==0">
-    <div *ngFor="let i of hbfDetails; index as ind" class="text-black dbSans grid grid-cols-6 grid-flow-col mb-4" [ngClass]="{'dbBlack': i.station==='Berlin Hbf' || i.station === 'Berlin Hbf (tief)'}">
-        <div #stationParent [ngClass]="{'line-through decoration-[#EC0016]': i.stopCancelled}" class="col-span-3 text-ellipsis overflow-hidden">{{i.station}}</div>
-        <div class="text-center"><span *ngIf="i.platformDep == null || i.platformArr != null ">{{i.platformArr}}</span><span *ngIf="i.platformArr == null">{{i.platformDep}}</span></div>
-        <div class="text-left">   <span>{{i.planDep | date: "HH:mm"}}</span>
-                <span *ngIf="!i.planDep">{{i.planArr | date: "HH:mm"}}</span>
+                    <span class="text-sm text-[#00AA11] dbBold" [class.red-delay]="i.depDelay >= 5"
+                        *ngIf="i.depDelay>0">+{{i.depDelay}}</span>
+                    <span class="text-sm text-[#00AA11] dbBold" [class.red-delay]="i.arrDelay >= 5"
+                        *ngIf="i.arrDelay>0 && !i.depDelay">+{{i.arrDelay}}</span>
 
-                <span class="text-sm text-[#00AA11] dbBold" [class.red-delay]="i.depDelay >= 5" *ngIf="i.depDelay>0">+{{i.depDelay}}</span>
-                <span class="text-sm text-[#00AA11] dbBold" [class.red-delay]="i.arrDelay >= 5" *ngIf="i.arrDelay>0 && !i.depDelay">+{{i.arrDelay}}</span>
-        
-        </div>
-        <small *ngIf="i.stopCancelled && !mobile" class="red-delay text-sm">Halt entfällt</small>
-        <small *ngIf="i.stopCancelled && mobile" class="relative bottom-0.5"><img src="../../assets/pictures/close.svg" width="70%" alt="cancelled"></small>
+                </div>
+                <small *ngIf="i.stopCancelled && !mobile" class="red-delay text-sm">Halt entfällt</small>
+                <small *ngIf="i.stopCancelled && mobile" class="relative bottom-0.5"><img
+                        src="../../assets/pictures/close.svg" width="70%" alt="cancelled"></small>
 
-    </div>
-    <hr>
-    <small *ngIf="iceType" class="dbSans mt-4">Es fährt ein {{iceType}}</small><img *ngIf="this.iceFound" (load)="loading()" src="{{imgUrl}}" height=".2rem" width="100%" alt="">
-    <small *ngIf="iceType && notice.length > 0" class="dbItalic">{{notice}}</small>
-    <div *ngIf="(data.product == 'ICE' && !isLoading) || hbfDetails.length == 0" class="animate-pulse grid grid-cols-6 grid-flow-col space-x-4">
-        <div class="py-1 mt-2 col-span-full">
-            <div class="h-16 bg-gray-200 rounded"></div>
+            </div>
+            <hr>
+            <small *ngIf="iceType" class="dbSans mt-4">Es fährt ein {{iceType}}</small><img *ngIf="this.iceFound"
+                (load)="loading()" src="{{imgUrl}}" height=".2rem" width="100%" alt="">
+            <small *ngIf="iceType && notice.length > 0" class="dbItalic">{{notice}}</small>
+            <div *ngIf="(data.product == 'ICE' && !isLoading) || hbfDetails.length == 0"
+                class="animate-pulse grid grid-cols-6 grid-flow-col space-x-4">
+                <div class="py-1 mt-2 col-span-full">
+                    <div class="h-16 bg-gray-200 rounded"></div>
+                </div>
+            </div>
+            <div>
+                <small>Betreiber: {{data.operator}}</small>
+            </div>
         </div>
-    </div>
-    <div>
-        <small>Betreiber: {{data.operator}}</small>
-    </div>
-</div>
-    <app-detect-status></app-detect-status>
-</mat-dialog-content>
+        <app-detect-status></app-detect-status>
+    </mat-dialog-content>
 </div>
